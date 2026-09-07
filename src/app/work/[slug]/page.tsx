@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowUpRight, Lightbulb } from "lucide-react";
+import { ArrowLeft, Lightbulb } from "lucide-react";
 import { caseStudyMap, caseStudies } from "@/data/caseStudies";
 import { industryMap } from "@/data/industries";
 import { profile } from "@/data/profile";
@@ -154,21 +154,16 @@ export default async function CaseStudyPage({
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {cs.artifacts.map((a) => (
-                <a
+                <div
                   key={a.label}
-                  href={a.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="rounded-xl p-5 hover:border-[var(--accent)] transition-colors duration-150 group"
+                  className="rounded-xl p-5"
                   style={{ background: "var(--card)", border: "1px solid var(--border)" }}
                 >
-                  <p className="text-sm font-semibold text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors inline-flex items-center gap-1">
-                    {a.label} <ArrowUpRight className="w-3.5 h-3.5" />
-                  </p>
+                  <p className="text-sm font-semibold text-[var(--foreground)]">{a.label}</p>
                   <p className="text-xs text-[var(--text-secondary)] mt-1.5 leading-relaxed">
                     {a.description}
                   </p>
-                </a>
+                </div>
               ))}
             </div>
           </>

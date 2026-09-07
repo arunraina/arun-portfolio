@@ -6,23 +6,15 @@ export const industries: Industry[] = [
     label: "B2B SaaS & Enterprise",
     short: "B2B SaaS",
     tagline:
-      "Enterprise platforms sold to Tier-1 accounts — roadmaps, workflow tools and adoption across complex organizations.",
+      "Enterprise platforms sold to Tier-1 accounts — including retail media and personalization for global retailers like Tesco, John Lewis Partners, Coop and Metro.",
     resumeFile: "/resumes/b2b-saas.pdf",
-  },
-  {
-    id: "retail-media",
-    label: "Retail Media & Retail Tech",
-    short: "Retail Media",
-    tagline:
-      "Personalization, offers and measurement products built for retailers like Tesco, John Lewis Partners, Coop and Metro.",
-    resumeFile: "/resumes/retail-media.pdf",
   },
   {
     id: "marketplace",
     label: "Marketplace",
     short: "Marketplace",
     tagline:
-      "Two-sided supply/demand platforms — discovery, trust, liquidity and transaction flow between buyers and sellers.",
+      "Two-sided platforms connecting supply and demand — from founding Griffy's construction marketplace to scaling Nojoto's creator-consumer marketplace to ~150M ARR.",
     resumeFile: "/resumes/marketplace.pdf",
   },
   {
@@ -30,15 +22,8 @@ export const industries: Industry[] = [
     label: "Construction & PropTech",
     short: "Construction",
     tagline:
-      "Founder-built marketplace connecting homeowners with contractors — vendor trust, field-service and lead operations.",
+      "Griffy: a founder-built marketplace connecting homeowners with architects, contractors, material suppliers and service professionals.",
     resumeFile: "/resumes/construction.pdf",
-  },
-  {
-    id: "media-entertainment",
-    label: "Media & Entertainment",
-    short: "Media & Ent.",
-    tagline:
-      "Scaling a 30M+ MAU storytelling platform — creator monetization, subscriptions and content-led growth.",
   },
   {
     id: "live-streaming",
@@ -52,7 +37,7 @@ export const industries: Industry[] = [
     label: "Payments & FinTech",
     short: "Payments",
     tagline:
-      "Wallets, UPI/card gateways, KYC, escrow, payouts and checkout — the full stack of a consumer payments platform.",
+      "The full Nojoto payments stack — wallet, UPI/card gateways, escrow, checkout, failure-retry, payouts and KYC — plus Griffy's escrow-based marketplace payments.",
     resumeFile: "/resumes/payments-fintech.pdf",
   },
   {
@@ -75,7 +60,7 @@ export const industries: Industry[] = [
     label: "AI/ML & Applied AI",
     short: "AI/ML",
     tagline:
-      "Turning ML models and LLM agents into shipped product — decisioning, recommendations and agentic workflows.",
+      "Turning ML models into shipped product — recommendation engines, uplift measurement and AI-driven decisioning at enterprise scale.",
     resumeFile: "/resumes/ai-ml.pdf",
   },
   {
@@ -85,6 +70,37 @@ export const industries: Industry[] = [
     tagline:
       "Cross-functional leadership, multi-quarter roadmaps and P&L ownership across product, data and business teams.",
     resumeFile: "/resumes/consulting-strategy.pdf",
+  },
+  {
+    id: "agentic-ai",
+    label: "Agentic AI",
+    short: "Agentic AI",
+    tagline:
+      "Typed planners and tool registries that turn LLMs into safe, deterministic product surfaces — a decision layer, not a chatbot.",
+    resumeFile: "/resumes/ai-ml.pdf",
+  },
+  {
+    id: "finance-tax",
+    label: "Finance & Tax Ops",
+    short: "Finance/Tax",
+    tagline:
+      "Ledgers, invoicing, audit reporting, GST-compliant escrow and creator payouts — the accounting backbone behind consumer payments.",
+    resumeFile: "/resumes/payments-fintech.pdf",
+  },
+  {
+    id: "logistics",
+    label: "Logistics & Fulfillment",
+    short: "Logistics",
+    tagline:
+      "Order lifecycle, delivery and pickup workflows, and post-purchase operations from booking through fulfillment and returns.",
+    resumeFile: "/resumes/ecommerce.pdf",
+  },
+  {
+    id: "mobile-app",
+    label: "Mobile App Product",
+    short: "Mobile App",
+    tagline:
+      "Consumer mobile product surfaces — content creation, live streaming, discovery and monetization shipped inside the Nojoto app.",
   },
 ];
 

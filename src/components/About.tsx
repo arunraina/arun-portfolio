@@ -1,5 +1,5 @@
-import { Award, Languages as LanguagesIcon, GraduationCap } from "lucide-react";
-import { profile, education, certifications, languages, awards } from "@/data/profile";
+import { Award, Languages as LanguagesIcon } from "lucide-react";
+import { profile, certifications, languages, awards } from "@/data/profile";
 import SkillsGrid from "./SkillsGrid";
 
 export default function About() {
@@ -27,28 +27,7 @@ export default function About() {
         <SkillsGrid />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div className="rounded-xl p-5" style={{ background: "var(--navy)", border: "1px solid var(--navy-border)" }}>
-          <h4
-            className="text-xs font-semibold uppercase tracking-wide mb-3 flex items-center gap-1.5"
-            style={{ color: "var(--navy-text-secondary)" }}
-          >
-            <GraduationCap className="w-3.5 h-3.5" /> Education
-          </h4>
-          <ul className="flex flex-col gap-3">
-            {education.map((e) => (
-              <li key={e.program}>
-                <p className="text-sm font-semibold" style={{ color: "var(--navy-text)" }}>
-                  {e.program}
-                </p>
-                <p className="text-xs" style={{ color: "var(--navy-text-secondary)" }}>
-                  {e.institute} · {e.year}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
-
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="bg-white rounded-xl border border-[var(--border)] p-5" style={{ background: "var(--card)" }}>
           <h4 className="text-xs font-semibold uppercase tracking-wide text-[var(--text-muted)] mb-3 flex items-center gap-1.5">
             <Award className="w-3.5 h-3.5" /> Certifications & awards

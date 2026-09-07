@@ -22,7 +22,9 @@ export interface Project {
     | "megaphone"
     | "route"
     | "receipt"
-    | "flask";
+    | "flask"
+    | "brain"
+    | "truck";
   tags: IndustryId[];
 }
 
@@ -36,7 +38,7 @@ export const projects: Project[] = [
       "Turned a live-streaming behavioral signal into a per-minute expert marketplace — from a 62%-click MVP to a stable, real-time consultation platform.",
     impact: ["5x → 8x LTV/CAC", "ARPU ₹142 → ₹286", "Calls/user 2.7 → 6"],
     icon: "call",
-    tags: ["media-entertainment", "live-streaming", "b2c-growth", "payments-fintech", "ai-ml"],
+    tags: ["marketplace", "mobile-app", "live-streaming", "b2c-growth", "payments-fintech", "ai-ml"],
   },
   {
     company: "Dunnhumby",
@@ -46,7 +48,7 @@ export const projects: Project[] = [
       "Enterprise personalization platform deployed across 5+ Tier-1 retailers (Tesco, John Lewis Partners, Coop, Metro), unifying offers, experimentation and AI-driven decisioning.",
     impact: ["50M+ customer interactions", "30–40% faster campaign setup", "5+ Tier-1 retailers live"],
     icon: "chart",
-    tags: ["b2b-saas", "retail-media", "ai-ml"],
+    tags: ["b2b-saas", "ai-ml"],
   },
   {
     company: "Dunnhumby",
@@ -56,7 +58,7 @@ export const projects: Project[] = [
       "Unified Email, SMS and Direct Mail execution with audience targeting and offer decisioning — one orchestration layer for lifecycle-driven retailer campaigns.",
     impact: ["Cross-channel orchestration", "Built-in offer decisioning", "Lifecycle-driven engagement"],
     icon: "layers",
-    tags: ["b2b-saas", "retail-media", "ecommerce"],
+    tags: ["b2b-saas", "ecommerce"],
   },
   {
     company: "Nojoto",
@@ -66,7 +68,7 @@ export const projects: Project[] = [
       "Owned the end-to-end payments stack — wallet, UPI/card gateways, KYC, escrow and checkout — rebuilding the funnel for reliability and conversion.",
     impact: ["+34% payment success ratio", "−16% payment failures", "+8% gross revenue"],
     icon: "wallet",
-    tags: ["payments-fintech", "ecommerce"],
+    tags: ["payments-fintech", "ecommerce", "marketplace", "finance-tax"],
   },
   {
     company: "Griffy",
@@ -76,7 +78,7 @@ export const projects: Project[] = [
       "Founded and built a two-sided marketplace from scratch, connecting homeowners with architects, contractors, material suppliers and service professionals.",
     impact: ["0→1 marketplace, full stack", "Vendor KYC & trust workflows", "Escrow-based payments"],
     icon: "building",
-    tags: ["construction", "marketplace", "consulting-strategy", "payments-fintech"],
+    tags: ["construction", "marketplace", "consulting-strategy", "payments-fintech", "logistics", "finance-tax"],
   },
   {
     company: "Griffy",
@@ -89,6 +91,20 @@ export const projects: Project[] = [
     tags: ["construction", "marketplace", "consulting-strategy", "b2b-saas"],
   },
   {
+    company: "Griffy",
+    title: "Atlas — AI Decision Layer",
+    category: "Agentic AI · Decision Intelligence · Platform",
+    description:
+      "Designed the product architecture for Atlas, Griffy's AI decision layer: one planner plus a typed tool registry — not a chatbot — that turns natural language into typed booking intents while a home-memory record predicts what a house needs next in its construction lifecycle.",
+    impact: [
+      "One planner, typed tool registry",
+      "LLM never writes to a business table",
+      "No agent can book, order or pay",
+    ],
+    icon: "brain",
+    tags: ["agentic-ai", "ai-ml", "construction", "marketplace", "consulting-strategy"],
+  },
+  {
     company: "Nojoto",
     title: "Live Streaming & AR Platform",
     category: "Live Streaming · AR/AI · Video",
@@ -96,7 +112,7 @@ export const projects: Project[] = [
       "Shipped enterprise-grade real-time live streaming (Agora) and AI camera filters/AR content creation (Snap partnership) at platform scale.",
     impact: ["Enterprise-grade real-time infra", "Snap AI camera filters", "+18% D1 time spent"],
     icon: "video",
-    tags: ["live-streaming", "media-entertainment", "ai-ml"],
+    tags: ["live-streaming", "marketplace", "mobile-app", "ai-ml"],
   },
   {
     company: "Nojoto",
@@ -106,7 +122,7 @@ export const projects: Project[] = [
       "Built the Creator Earning Academy and a gamified progression system that turned casual creators into habitual, monetizing power users.",
     impact: ["+180% activation", "+116% supply-side conversion", "+320% usage"],
     icon: "trophy",
-    tags: ["b2c-growth", "media-entertainment"],
+    tags: ["b2c-growth", "marketplace", "mobile-app"],
   },
   {
     company: "Nojoto",
@@ -116,7 +132,7 @@ export const projects: Project[] = [
       "Built an end-to-end corporate event booking platform with QR-based ticket validation — a new offline B2B revenue stream for the platform.",
     impact: ["New B2B revenue stream", "QR ticket validation", "End-to-end booking ops"],
     icon: "ticket",
-    tags: ["b2b-saas", "consulting-strategy", "ecommerce"],
+    tags: ["b2b-saas", "consulting-strategy", "ecommerce", "marketplace", "logistics"],
   },
   {
     company: "Nojoto",
@@ -126,7 +142,17 @@ export const projects: Project[] = [
       "Took physical products — Goonj speakers and other creator-branded electronics — from product selection through fulfillment, Nojoto's first commerce line.",
     impact: ["Product discovery to fulfillment", "Creator-branded electronics", "New commerce revenue line"],
     icon: "cart",
-    tags: ["ecommerce", "marketplace"],
+    tags: ["ecommerce", "marketplace", "logistics"],
+  },
+  {
+    company: "Griffy · Nojoto",
+    title: "Order Lifecycle & Fulfillment Ops",
+    category: "Logistics · Fulfillment · Post-Purchase",
+    description:
+      "Designed order/service lifecycle management end-to-end — booking through completion at Griffy, and post-purchase cancellations, refunds, returns and reconciliation at Nojoto — covering delivery, pickup and customer/vendor handoffs.",
+    impact: ["Delivery, pickup & return workflows", "Refund & reconciliation across gateways", "Real-time status tracking"],
+    icon: "truck",
+    tags: ["logistics", "ecommerce", "construction", "payments-fintech", "marketplace"],
   },
   {
     company: "Nojoto",
@@ -136,7 +162,7 @@ export const projects: Project[] = [
       "Shipped the core creation toolkit — Write-on-Photo, in-app video recording/editing, Stories, and audio chat rooms — turning passive consumers into daily creators.",
     impact: ["Write-on-Photo content tool", "Stories format shipped", "Audio chat rooms (Clubhouse-style)"],
     icon: "camera",
-    tags: ["media-entertainment", "live-streaming", "b2c-growth"],
+    tags: ["marketplace", "mobile-app", "live-streaming", "b2c-growth"],
   },
   {
     company: "Nojoto",
@@ -146,7 +172,7 @@ export const projects: Project[] = [
       "Built a paid-promotion layer — platform ads and creator 'boost' — alongside platform and creator subscriptions, adding a third monetization pillar beyond gifting and calls.",
     impact: ["Paid creator boost/promotion", "Platform subscription tier", "New ads revenue pillar"],
     icon: "megaphone",
-    tags: ["media-entertainment", "payments-fintech", "b2c-growth"],
+    tags: ["marketplace", "payments-fintech", "b2c-growth"],
   },
   {
     company: "Nojoto",
@@ -156,7 +182,7 @@ export const projects: Project[] = [
       "Rebuilt search and discovery on Elasticsearch and redesigned onboarding funnels and the profile-completion journey to get new users to their first Aha moment faster.",
     impact: ["Elasticsearch-powered search", "Redesigned onboarding funnel", "Profile-completion journey"],
     icon: "route",
-    tags: ["ai-ml", "b2c-growth", "consulting-strategy"],
+    tags: ["ai-ml", "b2c-growth", "consulting-strategy", "marketplace", "mobile-app"],
   },
   {
     company: "Nojoto",
@@ -166,7 +192,7 @@ export const projects: Project[] = [
       "Built the financial backbone behind every payment feature — ledgers, invoicing, audit reporting and creator payout runs — so KYC'd creators get paid correctly and on time.",
     impact: ["Payment ledger & audit reports", "Invoicing & creator payouts", "KYC-gated compliance"],
     icon: "receipt",
-    tags: ["payments-fintech", "consulting-strategy"],
+    tags: ["payments-fintech", "finance-tax", "consulting-strategy", "marketplace"],
   },
   {
     company: "Dunnhumby",
@@ -176,6 +202,6 @@ export const projects: Project[] = [
       "Built and scaled the controlled-experimentation platform enterprise retailers use to design, run and measure tests across channels before wider rollout.",
     impact: ["30–40% faster campaign setup", "Controlled experiments at scale", "Unlocked new commercial offers"],
     icon: "flask",
-    tags: ["b2b-saas", "retail-media", "ai-ml"],
+    tags: ["b2b-saas", "ai-ml"],
   },
 ];

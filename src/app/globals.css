@@ -7,7 +7,7 @@
   --text-muted: #94a3b8;
   --card: #ffffff;
   --border: #e2e8f0;
-  --accent: #2f5df5;
+  --accent: #3457ff;
   --accent-hover: #1e42c9;
   --accent-soft: #eef2ff;
   --accent-border: #c7d5fe;
@@ -16,6 +16,10 @@
   --navy-border: #24304d;
   --navy-text: #f1f5f9;
   --navy-text-secondary: #94a3b8;
+  --gold: #b8860b;
+  --gold-hover: #96700a;
+  --gold-soft: #fdf6e8;
+  --gold-border: #f0dfae;
 }
 
 @theme inline {
@@ -42,6 +46,10 @@
     --navy-border: #202b45;
     --navy-text: #f1f5f9;
     --navy-text-secondary: #94a3b8;
+    --gold: #e0b23d;
+    --gold-hover: #f0c968;
+    --gold-soft: #241d0d;
+    --gold-border: #4a3a15;
   }
 }
 

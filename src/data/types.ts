@@ -1,15 +1,17 @@
 export type IndustryId =
   | "b2b-saas"
-  | "retail-media"
   | "marketplace"
   | "construction"
-  | "media-entertainment"
   | "live-streaming"
   | "payments-fintech"
   | "ecommerce"
   | "b2c-growth"
   | "ai-ml"
-  | "consulting-strategy";
+  | "consulting-strategy"
+  | "agentic-ai"
+  | "finance-tax"
+  | "logistics"
+  | "mobile-app";
 
 export interface Industry {
   id: IndustryId;

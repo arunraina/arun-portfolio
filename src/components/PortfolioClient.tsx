@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Nav from "./Nav";
 import Hero from "./Hero";
+import Pedigree from "./Pedigree";
 import LensSelector from "./LensSelector";
 import FlagshipGrid from "./FlagshipGrid";
 import Timeline from "./Timeline";
@@ -20,6 +21,7 @@ export default function PortfolioClient() {
       <div className="max-w-5xl mx-auto px-4">
         <Nav />
         <Hero lens={lens} />
+        <Pedigree />
         <div className="pb-4">
           <LensSelector active={lens} onChange={setLens} />
         </div>

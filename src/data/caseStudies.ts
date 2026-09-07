@@ -27,7 +27,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Expert Consultations",
     subtitle:
       "Turning a live-streaming behavior insight into a per-minute expert-consultation marketplace — from a 40-second frugal MVP to a 5x LTV/CAC business.",
-    tags: ["media-entertainment", "live-streaming", "b2c-growth", "payments-fintech", "ai-ml"],
+    tags: ["marketplace", "mobile-app", "live-streaming", "b2c-growth", "payments-fintech", "ai-ml"],
     metrics: [
       { label: "LTV/CAC", value: "5x → 8x projected" },
       { label: "ARPU", value: "₹142 → ₹286" },
