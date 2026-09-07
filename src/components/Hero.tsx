@@ -24,7 +24,13 @@ export default function Hero({ lens }: { lens: IndustryId | null }) {
             {activeIndustry ? `Product leader · ${activeIndustry.label}` : "Senior Product Manager · Open to product leadership roles"}
           </div>
 
-          <h1 className="text-3xl md:text-5xl font-bold text-[var(--foreground)] leading-[1.1] max-w-xl">
+          <h1
+            className={
+              activeIndustry
+                ? "text-xl md:text-2xl font-bold text-[var(--foreground)] leading-snug max-w-xl"
+                : "text-3xl md:text-5xl font-bold text-[var(--foreground)] leading-[1.1] max-w-xl"
+            }
+          >
             {activeIndustry ? activeIndustry.tagline : "Building scalable products that drive growth, monetization and customer engagement"}
           </h1>
 

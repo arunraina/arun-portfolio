@@ -360,6 +360,446 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
   },
+  {
+    slug: "omnichannel-orchestration",
+    company: "Dunnhumby",
+    title: "Omnichannel Campaign Orchestration",
+    subtitle:
+      "Unifying Email, SMS and Direct Mail behind one targeting and offer-decisioning layer, so a customer stops getting conflicting messages across channels.",
+    tags: ["b2b-saas", "ecommerce"],
+    metrics: [
+      { label: "Channels unified", value: "Email, SMS, Direct Mail" },
+      { label: "Decisioning", value: "Built-in, not per-channel" },
+    ],
+    context: {
+      heading: "Three channels, no shared brain",
+      body: [
+        "Retailers were running Email, SMS and Direct Mail as separate campaign tools with separate targeting logic — a customer could get a discount offer by email and a full-price push notification the same day, because nothing coordinated across channels.",
+      ],
+    },
+    product: {
+      heading: "One orchestration layer, not three campaign tools",
+      body: [
+        "Architected an Omnichannel Campaign Orchestration Platform, unifying Email, SMS and Direct Mail execution with audience targeting, offer decisioning and lifecycle-driven engagement built into the platform itself.",
+      ],
+    },
+    decisions: [
+      {
+        heading: "1. Decisioning as a shared layer, not a per-channel setting",
+        body: "The 'which offer, which channel, which moment' decision moved out of each channel team's hands and into one offer-decisioning layer every channel reads from — so a customer's Email and SMS treatment come from the same logic rather than three separately configured tools.",
+      },
+      {
+        heading: "2. Designing for lifecycle stage, not batch-and-blast",
+        body: "Built lifecycle-driven engagement into the targeting layer, so messaging reflects where a customer actually is in their relationship with the retailer rather than a single audience segment getting the same message regardless of stage.",
+      },
+    ],
+  },
+  {
+    slug: "vendor-crm-lead-management",
+    company: "Griffy",
+    title: "Vendor CRM & Lead Management",
+    subtitle:
+      "A sales-assisted matching engine for a two-sided marketplace that didn't have enough organic liquidity yet to match supply and demand on its own.",
+    tags: ["construction", "marketplace", "consulting-strategy", "b2b-saas"],
+    metrics: [
+      { label: "System", value: "Lead capture → scoring → conversion" },
+      { label: "Users", value: "Griffy sales team" },
+    ],
+    context: {
+      heading: "Marketplace liquidity doesn't arrive on day one",
+      body: [
+        "A brand-new two-sided marketplace like Griffy's doesn't yet have enough supply-demand density for pure self-serve matching. Early on, homeowner leads needed a human sales process to get matched to the right contractor or supplier — without one, leads went cold and never converted.",
+      ],
+    },
+    product: {
+      heading: "A CRM built for a marketplace's sales-assisted phase",
+      body: [
+        "Built a CRM and lead-management platform for sales teams — lead capture, qualification, scoring, structured follow-ups and conversion tracking — as the bridge between raw homeowner interest and an actual booked job.",
+      ],
+    },
+    decisions: [
+      {
+        heading: "1. Scoring leads instead of treating them all equally",
+        body: "Lead scoring meant sales reps' limited time went to the homeowners most likely to convert first, rather than working every lead in the order it arrived.",
+      },
+      {
+        heading: "2. Structured follow-up instead of relying on rep memory",
+        body: "A structured follow-up workflow existed specifically because inconsistent manual follow-up was the single biggest way leads went cold — a system, not a habit, had to own that.",
+      },
+      {
+        heading: "3. Closing the loop with conversion tracking",
+        body: "Tracking conversion back to lead source and sales behavior was what let the marketplace tell which intake channels and follow-up patterns actually worked, instead of running the sales motion on instinct.",
+      },
+    ],
+  },
+  {
+    slug: "live-streaming-ar",
+    company: "Nojoto",
+    title: "Live Streaming & AR Platform",
+    subtitle:
+      "Getting Nojoto's live video to enterprise-grade reliability and Instagram/Snapchat-level creation quality — and using it as the seed for an entirely new monetization line.",
+    tags: ["live-streaming", "marketplace", "mobile-app", "ai-ml"],
+    metrics: [
+      { label: "D1 time spent", value: "+18%" },
+      { label: "Activated conversion", value: "+13%" },
+      { label: "Infra", value: "Agora real-time" },
+    ],
+    context: {
+      heading: "Live had to feel as good as the apps creators already used",
+      body: [
+        "Nojoto's early live streaming was ticketed shows — occasional events, not a daily habit. To make live a core, constantly-used surface, it needed real-time reliability at scale and creation tools that didn't feel behind Instagram or Snapchat.",
+      ],
+    },
+    product: {
+      heading: "Agora for infrastructure, Snap for creation quality",
+      body: [
+        "Spearheaded the integration with Agora to launch enterprise-grade real-time live-streaming infrastructure, and led the strategic partnership with Snap Inc. to integrate AI-powered camera filters and AR content-creation experiences.",
+      ],
+    },
+    decisions: [
+      {
+        heading: "1. Buying real-time infrastructure instead of building it",
+        body: "Integrating Agora rather than building real-time video infrastructure in-house was the only way to reach enterprise-grade quality and scalability on a realistic timeline.",
+      },
+      {
+        heading: "2. Partnering for AR instead of building filters from scratch",
+        body: "The Snap partnership specifically targeted AI camera filters and AR content creation — matching a bar creators already held every app to, rather than shipping a visibly lesser version in-house.",
+        insight: "+18% D1 time spent, +13% activated-user conversion from the live video launch alone.",
+      },
+      {
+        heading: "3. Live streaming as infrastructure for what came next",
+        body: "The same live-streaming surface that shipped here is what later surfaced the co-host and phone-number-sharing behavior that became the seed for Expert Consultations — live wasn't just a feature, it was the observation platform for the next monetization line.",
+      },
+    ],
+  },
+  {
+    slug: "corporate-events-b2b",
+    company: "Nojoto",
+    title: "Corporate Events (B2B)",
+    subtitle:
+      "Standing up an entirely new offline B2B revenue stream on top of a consumer-only platform.",
+    tags: ["b2b-saas", "consulting-strategy", "ecommerce", "marketplace", "logistics"],
+    metrics: [
+      { label: "Revenue stream", value: "New, offline B2B" },
+      { label: "Ticketing", value: "QR-based validation" },
+    ],
+    context: {
+      heading: "A consumer platform with an untapped B2B audience",
+      body: [
+        "Every monetization stream on Nojoto up to this point was consumer-paid. Corporate and offline events were an entirely separate revenue opportunity sitting on top of the same creator and audience base, with no product built to serve it.",
+      ],
+    },
+    product: {
+      heading: "Booking and ticketing as one system",
+      body: [
+        "Built an end-to-end corporate event booking platform with QR-based ticket validation, creating a new offline B2B revenue stream rather than bolting ticketing onto the existing consumer app.",
+      ],
+    },
+    decisions: [
+      {
+        heading: "1. Treating this as a new business line, not a feature",
+        body: "Corporate events needed their own booking and sales motion — it was built and sold as a distinct B2B revenue stream, not a checkbox added to consumer event pages.",
+      },
+      {
+        heading: "2. QR validation to make the offline handoff verifiable",
+        body: "QR-based ticket validation gave the offline event a digital, verifiable proof of entry — closing the loop between an online booking and a real-world event.",
+      },
+    ],
+  },
+  {
+    slug: "creator-commerce-goonj",
+    company: "Nojoto",
+    title: "Creator Commerce (Goonj)",
+    subtitle:
+      "Nojoto's first physical-product commerce line — from product selection to fulfillment — built around creator-branded electronics.",
+    tags: ["ecommerce", "marketplace", "logistics"],
+    metrics: [
+      { label: "Category", value: "Creator-branded electronics" },
+      { label: "Scope", value: "Selection → fulfillment" },
+    ],
+    context: {
+      heading: "Creators had audiences, not a way to sell to them",
+      body: [
+        "Nojoto's creators had built real audiences on the platform, but any physical product they wanted to sell had to happen entirely outside Nojoto — no commerce layer existed to capture that demand.",
+      ],
+    },
+    product: {
+      heading: "Goonj: a creator-branded commerce line",
+      body: [
+        "Built a creator-focused commerce business — physical products including Goonj speakers and other creator-branded electronics — from product selection through fulfillment.",
+      ],
+    },
+    decisions: [
+      {
+        heading: "1. Starting with owned, branded products, not a generic catalog",
+        body: "Choosing creator-branded electronics as the wedge into commerce — rather than opening a generic third-party marketplace — kept the first version scoped to a supply chain Nojoto actually controlled.",
+      },
+      {
+        heading: "2. Owning the full chain end-to-end",
+        body: "Product selection, discovery, ordering, payment and fulfillment were owned as one connected flow rather than split across partners, which is what made this the direct precursor to Nojoto's broader order-lifecycle and fulfillment operations.",
+      },
+    ],
+  },
+  {
+    slug: "order-lifecycle-fulfillment",
+    company: "Griffy · Nojoto",
+    title: "Order Lifecycle & Fulfillment Ops",
+    subtitle:
+      "Two very different marketplaces — construction services and creator commerce — hitting the same problem: once someone pays, what happens next has to be visible and reversible.",
+    tags: ["logistics", "ecommerce", "construction", "payments-fintech", "marketplace"],
+    metrics: [
+      { label: "Griffy", value: "Booking → completion tracking" },
+      { label: "Nojoto", value: "Refunds, returns, reconciliation" },
+    ],
+    context: {
+      heading: "Payment is the start of the operational problem, not the end",
+      body: [
+        "At Griffy, a paid booking still had to move through delivery, pickup and completion with real handoffs between homeowner and vendor. At Nojoto, a paid order or call could still be cancelled, refunded or disputed. Both needed a defined, trackable lifecycle rather than an ad hoc process per exception.",
+      ],
+    },
+    product: {
+      heading: "One lifecycle discipline, two different marketplaces",
+      body: [
+        "At Griffy: developed order/service lifecycle management from booking through completion — delivery, pickup and return workflows, customer/vendor handoffs and real-time status tracking. At Nojoto: designed post-purchase workflows — cancellations, refunds, returns and reconciliation across gateway transactions.",
+      ],
+    },
+    decisions: [
+      {
+        heading: "1. Real-time status tracking as the trust mechanism",
+        body: "At Griffy, real-time status tracking directly answered the opacity that made homeowners distrust the market in the first place — knowing where a delivery or a job actually stood mattered as much as the transaction itself.",
+      },
+      {
+        heading: "2. Reconciliation as a designed workflow, not a support ticket queue",
+        body: "At Nojoto, refund, cancellation and reconciliation flows were defined as their own workflow across gateway transactions, rather than handled case-by-case through support — necessary once payment volume made manual reconciliation unworkable.",
+      },
+    ],
+  },
+  {
+    slug: "content-creation-live-social",
+    company: "Nojoto",
+    title: "Content Creation & Live Social Suite",
+    subtitle:
+      "Keeping content creation inside the app, instead of losing creators to Instagram and Snapchat for the actual making of content.",
+    tags: ["marketplace", "mobile-app", "live-streaming", "b2c-growth"],
+    metrics: [
+      { label: "Tools shipped", value: "Write-on-Photo, Stories, audio rooms" },
+      { label: "Video", value: "In-app recording & editing" },
+    ],
+    context: {
+      heading: "Creators were making content elsewhere and just posting the link",
+      body: [
+        "Nojoto's growth depended on people creating inside the app, but its native creation tools were thin next to Instagram and Snapchat — creators often made content elsewhere and shared it into Nojoto rather than creating natively.",
+      ],
+    },
+    product: {
+      heading: "A creation toolkit built for the lowest-friction entry point up",
+      body: [
+        "Shipped the core content-creation toolkit — Write-on-Photo, in-app video recording/editing, Stories and audio chat rooms — designed to turn passive consumers into daily creators.",
+      ],
+    },
+    decisions: [
+      {
+        heading: "1. Write-on-Photo as the lowest-friction way in",
+        body: "Text over an image is a far smaller ask than a full video edit — prioritizing it first meant more people could clear the bar to post at all.",
+      },
+      {
+        heading: "2. Stories as its own format, not folded into the main feed",
+        body: "Shipping Stories as a distinct, ephemeral format rather than mixing it into permanent feed content matched how creators already expected to separate throwaway moments from lasting posts.",
+      },
+      {
+        heading: "3. Audio rooms for creators who didn't want to be on camera",
+        body: "Audio chat rooms gave creators a lower-production path to going live — talking without the production bar (or exposure) of full video streaming.",
+      },
+    ],
+  },
+  {
+    slug: "creator-boost-advertising",
+    company: "Nojoto",
+    title: "Creator Boost & Platform Advertising",
+    subtitle:
+      "Adding a third monetization pillar — paid visibility — alongside consumer-paid gifting and calls.",
+    tags: ["marketplace", "payments-fintech", "b2c-growth"],
+    metrics: [
+      { label: "New pillar", value: "Paid visibility" },
+      { label: "Products", value: "Boost, platform ads, subscriptions" },
+    ],
+    context: {
+      heading: "Every dollar on the platform came from the consumer",
+      body: [
+        "Gifting, subscriptions and paid calls were all consumer-paid. There was no way for a creator to pay for their own visibility, and no advertising product for the platform itself — an entire monetization surface was untapped.",
+      ],
+    },
+    product: {
+      heading: "Boost and platform ads as related but distinct products",
+      body: [
+        "Built a paid-promotion layer — platform ads and creator 'boost' — alongside platform and creator subscriptions, adding a third monetization pillar beyond gifting and calls.",
+      ],
+    },
+    decisions: [
+      {
+        heading: "1. Separating creator boost from platform advertising",
+        body: "A creator paying to promote themselves and an advertiser paying for platform placement are different buyers with different intents — building them as two distinct products sharing common infrastructure kept each one's pricing and targeting honest.",
+      },
+      {
+        heading: "2. Subscriptions alongside pay-per-boost, not instead of it",
+        body: "Layering a subscription tier in alongside one-off boosts gave both a recurring and a transactional path to the same outcome — visibility — depending on how a creator or advertiser wanted to pay.",
+      },
+    ],
+  },
+  {
+    slug: "search-discovery-onboarding",
+    company: "Nojoto",
+    title: "Search, Discovery & Onboarding",
+    subtitle:
+      "Rebuilding search on Elasticsearch and treating onboarding and profile completion as one connected journey, not two separate flows.",
+    tags: ["ai-ml", "b2c-growth", "consulting-strategy", "marketplace", "mobile-app"],
+    metrics: [
+      { label: "Search", value: "Elasticsearch-powered" },
+      { label: "Onboarding", value: "Funnel + profile journey redesigned" },
+    ],
+    context: {
+      heading: "An incomplete profile was itself a churn predictor",
+      body: [
+        "As Nojoto's content and creator base scaled, basic search stopped being relevant or fast enough, and new users who never finished their profile churned at a much higher rate than those who did — two separate-looking problems with a shared root cause: the first-session experience.",
+      ],
+    },
+    product: {
+      heading: "Search and onboarding, rebuilt together",
+      body: [
+        "Rebuilt search and discovery on Elasticsearch and redesigned onboarding funnels and the profile-completion journey to accelerate new users to their first Aha moment.",
+      ],
+    },
+    decisions: [
+      {
+        heading: "1. Elasticsearch for relevance and scale a basic query couldn't give",
+        body: "Moving search onto Elasticsearch was necessary once content and creator volume outgrew what simple database queries could serve relevantly and quickly.",
+      },
+      {
+        heading: "2. Treating onboarding and profile completion as one journey",
+        body: "Onboarding funnels and profile completion were redesigned as a single connected path rather than two separate flows, since an incomplete profile was itself a leading indicator of early drop-off.",
+      },
+    ],
+  },
+  {
+    slug: "creator-payouts-ledger",
+    company: "Nojoto",
+    title: "Creator Payouts, Ledger & Compliance",
+    subtitle:
+      "One shared financial backbone underneath every monetization product, instead of each feature inventing its own accounting.",
+    tags: ["payments-fintech", "finance-tax", "consulting-strategy", "marketplace"],
+    metrics: [
+      { label: "Systems", value: "Ledger, invoicing, audit, payouts" },
+      { label: "Gate", value: "KYC-required" },
+    ],
+    context: {
+      heading: "Every monetization product ultimately owed someone money",
+      body: [
+        "Gifting, subscriptions, paid calls and commerce all eventually had to pay a creator, a vendor or the platform itself. Without one shared financial system, each product would have needed its own ad hoc accounting — a guaranteed source of drift and errors.",
+      ],
+    },
+    product: {
+      heading: "One ledger, one payout system, gated by compliance",
+      body: [
+        "Built the financial backbone behind every payment feature — ledgers, invoicing, audit reporting and creator payout runs — so KYC'd creators get paid correctly and on time.",
+      ],
+    },
+    decisions: [
+      {
+        heading: "1. One shared ledger instead of per-feature payout logic",
+        body: "Every monetization product settles through the same ledger and payout system, rather than each feature building its own version of 'how creators get paid' — the same lesson that shaped the Payments & Checkout work.",
+      },
+      {
+        heading: "2. Gating payouts on KYC, not treating compliance as separate",
+        body: "Payouts are tied directly to KYC completion, making compliance part of the money-movement path itself rather than a gate bolted on afterward.",
+      },
+      {
+        heading: "3. Audit reporting as a first-class capability",
+        body: "Given GST-integrated escrow was already part of the payments stack, audit reporting was built in from the start rather than added reactively once it was needed for compliance review.",
+      },
+    ],
+  },
+  {
+    slug: "quick-fix-dispatch",
+    company: "Griffy",
+    title: "Quick Fix — Provider Dispatch & Assignment",
+    subtitle:
+      "Griffy assigns a provider on the homeowner's behalf for urgent jobs — which means the reliability of that assignment is the entire product.",
+    tags: ["construction", "marketplace", "ai-ml", "logistics"],
+    metrics: [
+      { label: "Assignment", value: "Duty of care, never for sale" },
+      { label: "Distance signal", value: "Real, not hardcoded" },
+      { label: "Scorer gap found", value: "45 of 100 pts constant" },
+    ],
+    context: {
+      heading: "An assignment, not a browse-and-choose listing",
+      body: [
+        "For urgent repair-type jobs, Quick Fix doesn't show a homeowner a list to pick from — it assigns a provider on their behalf. That makes the assignment itself the product: get it wrong and the homeowner has no recourse, because they never chose.",
+      ],
+    },
+    product: {
+      heading: "A scorer combining response rate, completion rate and real distance",
+      body: [
+        "The assignment scorer ranks available providers using response rate, completion rate and provider-to-job distance. Because Griffy is a paid marketplace with brand partners, the hardest rule is what the scorer must never use: paid placement or any commercial promotion is barred from influencing assignment at all — this is a duty of care, not a merchandising surface.",
+      ],
+    },
+    decisions: [
+      {
+        heading: "1. Finding the scorer was silently broken",
+        body: "responseRate and completionRate were being read by the assignment scorer but had never actually been written anywhere — silently making 45 of the scorer's 100 ranking points a constant rather than a real signal. Shipped provider_daily_stats plus an hourly rollup specifically to close that gap.",
+      },
+      {
+        heading: "2. Replacing a hardcoded distance with a real one",
+        body: "The scorer's geography component was a hardcoded proximityScore of 10 for every provider. Real distance now feeds dispatch scoring instead, so geography is an actual signal rather than a constant dressed up as one.",
+      },
+      {
+        heading: "3. Keeping cold start honest instead of routing around it",
+        body: "In a new city, a confidently wrong 'here's your provider' is worse than an honest 'nobody's available yet' — so a new city inherits the existing CityComingSoon behavior rather than a workaround that pretends coverage exists.",
+      },
+    ],
+  },
+  {
+    slug: "unified-pricing-engine",
+    company: "Griffy",
+    title: "Unified Pricing & Fee Engine",
+    subtitle:
+      "Three separate copies of Griffy's fee math were found operating independently in one afternoon — and they had already drifted, with the web app showing one price and the API charging another.",
+    tags: ["construction", "marketplace", "finance-tax", "payments-fintech", "consulting-strategy"],
+    metrics: [
+      { label: "Duplicated fee tables found", value: "3, in one afternoon" },
+      { label: "Invariant enforced", value: "Revenue = pays − payout − tax" },
+      { label: "Pricing snapshot", value: "Frozen per booking" },
+    ],
+    context: {
+      heading: "A duplicated rate table doesn't just risk drifting — it always drifts",
+      body: [
+        "Griffy's fee math for Quick Fix, contractors, labour and materials was found implemented three separate times — the Quick Fix cart, the service-expert cart page, and the checkout service — and they had already gone out of sync: the web app displayed a job at one price while the API silently created a booking at a higher one, because the cart had stopped showing a delivery fee the server was still charging.",
+      ],
+    },
+    product: {
+      heading: "One shared pricing package every quote and every charge reads from",
+      body: [
+        "Every rate now lives in one shared pricing package — the web quote and the API charge both read from it, for Quick Fix, contractors, labour, materials and the materials cart, so there is exactly one place a price or fee can be defined.",
+      ],
+    },
+    decisions: [
+      {
+        heading: "1. Collapsing three fee tables into one shared source of truth",
+        body: "The direction a duplicated rate always drifts is the same: the customer sees one number and gets billed another. Collapsing all three fee calculations into a single shared package removed the possibility of that specific failure mode entirely, rather than just fixing the one instance that had already drifted.",
+      },
+      {
+        heading: "2. Enforcing money conservation as a test, not a code review habit",
+        body: "Platform revenue must always equal what the customer pays minus the provider payout minus tax — enforced with a test across every segment and pricing tier, so a new fee that isn't fully accounted for fails a test before it ships, instead of surfacing as a support ticket later.",
+      },
+      {
+        heading: "3. Freezing price at booking time, deliberately never recomputed",
+        body: "Every booking snapshots its price the moment it's placed and never recalculates it later — tiers and promotional flags change over time, and recomputing an old booking would quietly restate what a customer already paid.",
+      },
+      {
+        heading: "4. Gating discounts server-side, and failing toward the safer price",
+        body: "Trade/contractor pricing eligibility is read from the buyer's actual approved status in the database, never from anything the client claims — the same principle behind how auth already works. A second guard rejects any discounted price that isn't strictly lower than retail, so a bad data row can only ever fail toward charging the normal price, never toward undercharging silently.",
+      },
+    ],
+  },
 ];
 
 export const caseStudyMap: Record<string, CaseStudy> = Object.fromEntries(

@@ -24,7 +24,9 @@ export interface Project {
     | "receipt"
     | "flask"
     | "brain"
-    | "truck";
+    | "truck"
+    | "zap"
+    | "scale";
   tags: IndustryId[];
 }
 
@@ -52,6 +54,7 @@ export const projects: Project[] = [
     tags: ["b2b-saas", "ai-ml"],
   },
   {
+    slug: "omnichannel-orchestration",
     company: "Dunnhumby",
     title: "Omnichannel Campaign Orchestration",
     category: "B2B SaaS · Retail Media · Martech",
@@ -84,6 +87,7 @@ export const projects: Project[] = [
     tags: ["construction", "marketplace", "consulting-strategy", "payments-fintech", "logistics", "finance-tax"],
   },
   {
+    slug: "vendor-crm-lead-management",
     company: "Griffy",
     title: "Vendor CRM & Lead Management",
     category: "B2B SaaS · Sales Ops · Construction",
@@ -109,6 +113,29 @@ export const projects: Project[] = [
     tags: ["agentic-ai", "ai-ml", "construction", "marketplace", "consulting-strategy"],
   },
   {
+    slug: "quick-fix-dispatch",
+    company: "Griffy",
+    title: "Quick Fix — Provider Dispatch & Assignment",
+    category: "Agentic AI · Marketplace Ops · Construction",
+    description:
+      "Griffy assigns a provider on the homeowner's behalf for urgent jobs — an assignment scorer combining response rate, completion rate and real distance, with paid placement permanently barred from influencing it.",
+    impact: ["Duty-of-care assignment, never for sale", "Real distance replaced a hardcoded score", "Closed a 45/100-point silent scoring gap"],
+    icon: "zap",
+    tags: ["construction", "marketplace", "ai-ml", "logistics"],
+  },
+  {
+    slug: "unified-pricing-engine",
+    company: "Griffy",
+    title: "Unified Pricing & Fee Engine",
+    category: "Finance/Tax · Payments · Platform",
+    description:
+      "Collapsed three independently-drifted fee calculations into one shared pricing package every quote and every charge reads from, with a test enforcing that platform revenue always equals customer payment minus provider payout minus tax.",
+    impact: ["3 duplicated fee tables found & merged", "Revenue-conservation invariant, tested", "Booking price frozen as a snapshot"],
+    icon: "scale",
+    tags: ["construction", "marketplace", "finance-tax", "payments-fintech", "consulting-strategy"],
+  },
+  {
+    slug: "live-streaming-ar",
     company: "Nojoto",
     title: "Live Streaming & AR Platform",
     category: "Live Streaming · AR/AI · Video",
@@ -130,6 +157,7 @@ export const projects: Project[] = [
     tags: ["b2c-growth", "marketplace", "mobile-app"],
   },
   {
+    slug: "corporate-events-b2b",
     company: "Nojoto",
     title: "Corporate Events (B2B)",
     category: "B2B SaaS · Events · Ticketing",
@@ -140,6 +168,7 @@ export const projects: Project[] = [
     tags: ["b2b-saas", "consulting-strategy", "ecommerce", "marketplace", "logistics"],
   },
   {
+    slug: "creator-commerce-goonj",
     company: "Nojoto",
     title: "Creator Commerce (Goonj)",
     category: "E-commerce · Marketplace · D2C",
@@ -150,6 +179,7 @@ export const projects: Project[] = [
     tags: ["ecommerce", "marketplace", "logistics"],
   },
   {
+    slug: "order-lifecycle-fulfillment",
     company: "Griffy · Nojoto",
     title: "Order Lifecycle & Fulfillment Ops",
     category: "Logistics · Fulfillment · Post-Purchase",
@@ -160,6 +190,7 @@ export const projects: Project[] = [
     tags: ["logistics", "ecommerce", "construction", "payments-fintech", "marketplace"],
   },
   {
+    slug: "content-creation-live-social",
     company: "Nojoto",
     title: "Content Creation & Live Social Suite",
     category: "Content Tools · Live Streaming · Social",
@@ -170,6 +201,7 @@ export const projects: Project[] = [
     tags: ["marketplace", "mobile-app", "live-streaming", "b2c-growth"],
   },
   {
+    slug: "creator-boost-advertising",
     company: "Nojoto",
     title: "Creator Boost & Platform Advertising",
     category: "Monetization · Ads · Subscriptions",
@@ -180,6 +212,7 @@ export const projects: Project[] = [
     tags: ["marketplace", "payments-fintech", "b2c-growth"],
   },
   {
+    slug: "search-discovery-onboarding",
     company: "Nojoto",
     title: "Search, Discovery & Onboarding",
     category: "Search · Onboarding · Activation",
@@ -190,6 +223,7 @@ export const projects: Project[] = [
     tags: ["ai-ml", "b2c-growth", "consulting-strategy", "marketplace", "mobile-app"],
   },
   {
+    slug: "creator-payouts-ledger",
     company: "Nojoto",
     title: "Creator Payouts, Ledger & Compliance",
     category: "Payments · Compliance · Finance Ops",
