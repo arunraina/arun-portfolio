@@ -12,6 +12,11 @@ import {
   Ticket,
   ShoppingCart,
   Layers,
+  Camera,
+  Megaphone,
+  Route,
+  Receipt,
+  FlaskConical,
   ArrowUpRight,
   Check,
 } from "lucide-react";
@@ -30,6 +35,11 @@ const iconMap: Record<Project["icon"], typeof Phone> = {
   ticket: Ticket,
   cart: ShoppingCart,
   layers: Layers,
+  camera: Camera,
+  megaphone: Megaphone,
+  route: Route,
+  receipt: Receipt,
+  flask: FlaskConical,
 };
 
 const gradientMap: Record<Project["icon"], string> = {
@@ -43,6 +53,11 @@ const gradientMap: Record<Project["icon"], string> = {
   ticket: "linear-gradient(135deg, #f0f9ff, #e0f2fe)",
   cart: "linear-gradient(135deg, #fefce8, #fef9c3)",
   layers: "linear-gradient(135deg, #f0fdfa, #ccfbf1)",
+  camera: "linear-gradient(135deg, #fdf4ff, #fae8ff)",
+  megaphone: "linear-gradient(135deg, #fff1f2, #ffe4e6)",
+  route: "linear-gradient(135deg, #f7fee7, #ecfccb)",
+  receipt: "linear-gradient(135deg, #f8fafc, #e2e8f0)",
+  flask: "linear-gradient(135deg, #eff6ff, #dbeafe)",
 };
 
 export default function FlagshipGrid({ lens }: { lens: IndustryId | null }) {

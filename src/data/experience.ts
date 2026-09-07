@@ -109,6 +109,18 @@ export const companies: Company[] = [
             text: "Built self-service, customer-support and internal admin capabilities, plus real-time chat between creators and consumers, reducing manual intervention.",
             tags: ["media-entertainment", "b2c-growth"],
           },
+          {
+            text: "Shipped the core content-creation toolkit — Write-on-Photo, in-app video recording/editing, Stories and audio chat rooms — and a creator boost/platform-ads layer as a third monetization pillar alongside gifting and paid calls.",
+            tags: ["media-entertainment", "live-streaming", "b2c-growth", "payments-fintech"],
+          },
+          {
+            text: "Rebuilt search and discovery on Elasticsearch and redesigned onboarding funnels and the profile-completion journey to accelerate new users to their first Aha moment.",
+            tags: ["ai-ml", "b2c-growth", "consulting-strategy"],
+          },
+          {
+            text: "Built the financial backbone behind every payment feature — ledgers, invoicing, audit reporting and creator payout runs — keeping KYC'd creators paid correctly and on time.",
+            tags: ["payments-fintech", "consulting-strategy"],
+          },
         ],
       },
       {

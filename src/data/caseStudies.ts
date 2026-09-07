@@ -43,7 +43,7 @@ export const caseStudies: CaseStudy[] = [
     product: {
       heading: "What is Expert Consultations",
       body: [
-        "Expert Consultations is a SaaS-like layer on top of Nojoto that makes it easy for experts to consult and serve India's Tier-2 consumer base. Anyone who believes they can serve consumers can apply for access and get displayed to consumers, who can reach them on a video/audio call at a price-per-minute.",
+        "Expert Consultations is a SaaS-like layer on top of Nojoto that makes it easy for experts to consult and serve India's Tier-2 consumer base. Anyone who believes they can serve consumers can apply for access and get displayed to consumers, who can reach them on a video/audio call at a price-per-minute — astrology was one of the earliest and strongest verticals, alongside relationship, career and wellness advice.",
         "Experts have full control over their availability, pricing and discounts, and get a dashboard to see how much they've earned, how they're performing, and how to improve and serve more consumers.",
       ],
     },

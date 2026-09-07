@@ -7,7 +7,22 @@ export interface Project {
   category: string;
   description: string;
   impact: string[];
-  icon: "call" | "chart" | "wallet" | "building" | "video" | "trophy" | "users" | "ticket" | "cart" | "layers";
+  icon:
+    | "call"
+    | "chart"
+    | "wallet"
+    | "building"
+    | "video"
+    | "trophy"
+    | "users"
+    | "ticket"
+    | "cart"
+    | "layers"
+    | "camera"
+    | "megaphone"
+    | "route"
+    | "receipt"
+    | "flask";
   tags: IndustryId[];
 }
 
@@ -112,5 +127,55 @@ export const projects: Project[] = [
     impact: ["Product discovery to fulfillment", "Creator-branded electronics", "New commerce revenue line"],
     icon: "cart",
     tags: ["ecommerce", "marketplace"],
+  },
+  {
+    company: "Nojoto",
+    title: "Content Creation & Live Social Suite",
+    category: "Content Tools · Live Streaming · Social",
+    description:
+      "Shipped the core creation toolkit — Write-on-Photo, in-app video recording/editing, Stories, and audio chat rooms — turning passive consumers into daily creators.",
+    impact: ["Write-on-Photo content tool", "Stories format shipped", "Audio chat rooms (Clubhouse-style)"],
+    icon: "camera",
+    tags: ["media-entertainment", "live-streaming", "b2c-growth"],
+  },
+  {
+    company: "Nojoto",
+    title: "Creator Boost & Platform Advertising",
+    category: "Monetization · Ads · Subscriptions",
+    description:
+      "Built a paid-promotion layer — platform ads and creator 'boost' — alongside platform and creator subscriptions, adding a third monetization pillar beyond gifting and calls.",
+    impact: ["Paid creator boost/promotion", "Platform subscription tier", "New ads revenue pillar"],
+    icon: "megaphone",
+    tags: ["media-entertainment", "payments-fintech", "b2c-growth"],
+  },
+  {
+    company: "Nojoto",
+    title: "Search, Discovery & Onboarding",
+    category: "Search · Onboarding · Activation",
+    description:
+      "Rebuilt search and discovery on Elasticsearch and redesigned onboarding funnels and the profile-completion journey to get new users to their first Aha moment faster.",
+    impact: ["Elasticsearch-powered search", "Redesigned onboarding funnel", "Profile-completion journey"],
+    icon: "route",
+    tags: ["ai-ml", "b2c-growth", "consulting-strategy"],
+  },
+  {
+    company: "Nojoto",
+    title: "Creator Payouts, Ledger & Compliance",
+    category: "Payments · Compliance · Finance Ops",
+    description:
+      "Built the financial backbone behind every payment feature — ledgers, invoicing, audit reporting and creator payout runs — so KYC'd creators get paid correctly and on time.",
+    impact: ["Payment ledger & audit reports", "Invoicing & creator payouts", "KYC-gated compliance"],
+    icon: "receipt",
+    tags: ["payments-fintech", "consulting-strategy"],
+  },
+  {
+    company: "Dunnhumby",
+    title: "Test & Learn Experimentation Platform",
+    category: "B2B SaaS · Experimentation · AI/ML",
+    description:
+      "Built and scaled the controlled-experimentation platform enterprise retailers use to design, run and measure tests across channels before wider rollout.",
+    impact: ["30–40% faster campaign setup", "Controlled experiments at scale", "Unlocked new commercial offers"],
+    icon: "flask",
+    tags: ["b2b-saas", "retail-media", "ai-ml"],
   },
 ];
