@@ -106,7 +106,7 @@ export const education = [
     year: "2025",
   },
   {
-    program: "SparkSeed Program",
+    program: "Business Management",
     institute: "Stanford Graduate School of Business",
     year: "2020",
   },
