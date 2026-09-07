@@ -1,5 +1,5 @@
-import { Award, Languages as LanguagesIcon, GraduationCap, ExternalLink } from "lucide-react";
-import { profile, education, certifications, languages, awards, freelance } from "@/data/profile";
+import { Award, Languages as LanguagesIcon, GraduationCap } from "lucide-react";
+import { profile, education, certifications, languages, awards } from "@/data/profile";
 import SkillsGrid from "./SkillsGrid";
 
 export default function About() {
@@ -25,30 +25,6 @@ export default function About() {
           The PM operating system
         </h3>
         <SkillsGrid />
-
-        {freelance.length > 0 && (
-          <div className="mt-6 pt-6 border-t" style={{ borderColor: "var(--border)" }}>
-            <h4 className="text-xs font-semibold uppercase tracking-wide text-[var(--text-muted)] mb-3">
-              Freelance & consulting
-            </h4>
-            {freelance.map((f) => (
-              <a
-                key={f.name}
-                href={f.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group flex items-start gap-2 text-sm"
-              >
-                <div>
-                  <span className="font-semibold text-[var(--foreground)] group-hover:text-[var(--accent)] transition-colors inline-flex items-center gap-1">
-                    {f.name} <ExternalLink className="w-3 h-3" />
-                  </span>
-                  <p className="text-[var(--text-secondary)] mt-0.5">{f.description}</p>
-                </div>
-              </a>
-            ))}
-          </div>
-        )}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">

@@ -1,7 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, LineChart, Wallet, Building2, Video, Trophy, ArrowUpRight, Check } from "lucide-react";
+import {
+  Phone,
+  LineChart,
+  Wallet,
+  Building2,
+  Video,
+  Trophy,
+  Users,
+  Ticket,
+  ShoppingCart,
+  Layers,
+  ArrowUpRight,
+  Check,
+} from "lucide-react";
 import { projects, Project } from "@/data/projects";
 import { industryMap } from "@/data/industries";
 import { IndustryId } from "@/data/types";
@@ -13,6 +26,10 @@ const iconMap: Record<Project["icon"], typeof Phone> = {
   building: Building2,
   video: Video,
   trophy: Trophy,
+  users: Users,
+  ticket: Ticket,
+  cart: ShoppingCart,
+  layers: Layers,
 };
 
 const gradientMap: Record<Project["icon"], string> = {
@@ -22,6 +39,10 @@ const gradientMap: Record<Project["icon"], string> = {
   building: "linear-gradient(135deg, #fef3c7, #fde68a)",
   video: "linear-gradient(135deg, #fdf2f8, #fce7f3)",
   trophy: "linear-gradient(135deg, #f5f3ff, #ede9fe)",
+  users: "linear-gradient(135deg, #fff7ed, #ffedd5)",
+  ticket: "linear-gradient(135deg, #f0f9ff, #e0f2fe)",
+  cart: "linear-gradient(135deg, #fefce8, #fef9c3)",
+  layers: "linear-gradient(135deg, #f0fdfa, #ccfbf1)",
 };
 
 export default function FlagshipGrid({ lens }: { lens: IndustryId | null }) {

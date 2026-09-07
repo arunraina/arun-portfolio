@@ -108,12 +108,6 @@ export const caseStudies: CaseStudy[] = [
           "A self-initiated redesign of the app's profile page — not part of a sprint, but flagged and designed ahead of prioritization to save time once it's scheduled.",
         url: "https://www.figma.com/design/4wzXLNrAxbgjxLO7kvTNRr/Profile-Revamp?node-id=0-1&t=gMYO1CgqrELaSFqO-0",
       },
-      {
-        label: "Quitsure — onboarding redesign (freelance)",
-        description:
-          "Freelance consulting engagement for a seed-stage startup: redesigned the login flow to reduce the number of steps to entry.",
-        url: "https://www.figma.com/design/SKdfkppirsxtya7bJWNBIG/Quitsure---Onboarding?node-id=0-1&t=RdBHHLrcvOtcpyYM-0",
-      },
     ],
   },
 ];

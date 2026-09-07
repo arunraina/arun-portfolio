@@ -15,14 +15,12 @@ function AchievementRow({
 }) {
   return (
     <li
-      className={`relative pl-4 py-2.5 transition-opacity ${
-        match ? "opacity-100" : "opacity-50"
-      }`}
+      className="relative pl-4 py-2.5"
       style={{
         borderLeft: match ? "2px solid var(--accent)" : "2px solid var(--border)",
       }}
     >
-      <p className="text-sm text-[var(--text-secondary)] leading-relaxed">
+      <p className="text-sm text-[var(--foreground)] leading-relaxed">
         {achievement.text}
       </p>
       <div className="mt-1.5 flex flex-wrap items-center gap-2">
@@ -72,13 +70,10 @@ export default function ExperienceSection({ lens }: { lens: IndustryId | null })
 
       <div className="flex flex-col gap-6">
         {companies.map((company) => {
-          const companyMatches = lens ? company.tags.includes(lens) : true;
           return (
             <div
               key={company.id}
-              className={`bg-white rounded-xl border p-5 md:p-6 transition-colors duration-150 ${
-                companyMatches ? "border-[var(--border)]" : "border-[var(--border)] opacity-70"
-              }`}
+              className="bg-white rounded-xl border border-[var(--border)] p-5 md:p-6"
               style={{ background: "var(--card)" }}
             >
               <div className="flex items-start gap-4 mb-4">

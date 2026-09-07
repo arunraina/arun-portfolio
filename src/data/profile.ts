@@ -162,12 +162,3 @@ export const highlights = [
   { metric: "100M+ users", label: "Consumer platform scale" },
   { metric: "50M+", label: "Customer interactions at Dunnhumby" },
 ];
-
-export const freelance = [
-  {
-    name: "Quitsure",
-    description:
-      "Freelance product-design consulting for a seed-stage startup — redesigned the onboarding and login flow to cut the number of steps to entry.",
-    url: "https://www.figma.com/design/SKdfkppirsxtya7bJWNBIG/Quitsure---Onboarding?node-id=0-1&t=RdBHHLrcvOtcpyYM-0",
-  },
-];
