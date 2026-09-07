@@ -41,6 +41,7 @@ export const projects: Project[] = [
     tags: ["marketplace", "mobile-app", "live-streaming", "b2c-growth", "payments-fintech", "ai-ml"],
   },
   {
+    slug: "emom-personalization",
     company: "Dunnhumby",
     title: "EMOM Personalization Platform",
     category: "B2B SaaS · Retail Media · AI/ML",
@@ -61,6 +62,7 @@ export const projects: Project[] = [
     tags: ["b2b-saas", "ecommerce"],
   },
   {
+    slug: "payments-checkout",
     company: "Nojoto",
     title: "Payments & Checkout Platform",
     category: "Payments · FinTech · Checkout",
@@ -71,6 +73,7 @@ export const projects: Project[] = [
     tags: ["payments-fintech", "ecommerce", "marketplace", "finance-tax"],
   },
   {
+    slug: "construction-marketplace",
     company: "Griffy",
     title: "Construction Marketplace",
     category: "Marketplace · Construction · 0→1",
@@ -91,6 +94,7 @@ export const projects: Project[] = [
     tags: ["construction", "marketplace", "consulting-strategy", "b2b-saas"],
   },
   {
+    slug: "atlas-ai-decision-layer",
     company: "Griffy",
     title: "Atlas — AI Decision Layer",
     category: "Agentic AI · Decision Intelligence · Platform",
@@ -115,6 +119,7 @@ export const projects: Project[] = [
     tags: ["live-streaming", "marketplace", "mobile-app", "ai-ml"],
   },
   {
+    slug: "creator-growth-gamification",
     company: "Nojoto",
     title: "Creator Growth & Gamification",
     category: "Growth · Gamification · Retention",
@@ -195,6 +200,7 @@ export const projects: Project[] = [
     tags: ["payments-fintech", "finance-tax", "consulting-strategy", "marketplace"],
   },
   {
+    slug: "test-learn-experimentation",
     company: "Dunnhumby",
     title: "Test & Learn Experimentation Platform",
     category: "B2B SaaS · Experimentation · AI/ML",

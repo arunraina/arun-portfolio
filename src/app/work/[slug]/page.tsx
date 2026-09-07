@@ -121,33 +121,37 @@ export default async function CaseStudyPage({
           ))}
         </div>
 
-        <h2 className="text-xl font-bold text-[var(--foreground)] mt-12 mb-5">
-          Insights from customer conversations
-        </h2>
-        <div className="flex flex-col gap-4">
-          {cs.customerInsights.map((ci, i) => (
-            <div
-              key={i}
-              className="rounded-xl p-6"
-              style={{ background: "var(--navy)", border: "1px solid var(--navy-border)" }}
-            >
-              <p className="text-xs font-semibold uppercase tracking-wide mb-2" style={{ color: "var(--navy-text-secondary)" }}>
-                Finding
-              </p>
-              <p className="text-sm mb-4" style={{ color: "var(--navy-text)" }}>
-                {ci.finding}
-              </p>
-              <p className="text-xs font-semibold uppercase tracking-wide mb-2" style={{ color: "var(--accent-hover)" }}>
-                Response
-              </p>
-              <p className="text-sm" style={{ color: "var(--navy-text-secondary)" }}>
-                {ci.response}
-              </p>
+        {cs.customerInsights && cs.customerInsights.length > 0 && (
+          <>
+            <h2 className="text-xl font-bold text-[var(--foreground)] mt-12 mb-5">
+              Insights from customer conversations
+            </h2>
+            <div className="flex flex-col gap-4">
+              {cs.customerInsights.map((ci, i) => (
+                <div
+                  key={i}
+                  className="rounded-xl p-6"
+                  style={{ background: "var(--navy)", border: "1px solid var(--navy-border)" }}
+                >
+                  <p className="text-xs font-semibold uppercase tracking-wide mb-2" style={{ color: "var(--navy-text-secondary)" }}>
+                    Finding
+                  </p>
+                  <p className="text-sm mb-4" style={{ color: "var(--navy-text)" }}>
+                    {ci.finding}
+                  </p>
+                  <p className="text-xs font-semibold uppercase tracking-wide mb-2" style={{ color: "var(--accent-hover)" }}>
+                    Response
+                  </p>
+                  <p className="text-sm" style={{ color: "var(--navy-text-secondary)" }}>
+                    {ci.response}
+                  </p>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
+          </>
+        )}
 
-        {cs.artifacts.length > 0 && (
+        {cs.artifacts && cs.artifacts.length > 0 && (
           <>
             <h2 className="text-xl font-bold text-[var(--foreground)] mt-12 mb-5">
               Design artifacts
