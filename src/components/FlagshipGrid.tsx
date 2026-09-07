@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import {
   Phone,
@@ -21,7 +22,9 @@ import {
   Truck,
   Zap,
   Scale,
+  MessageSquare,
   ArrowUpRight,
+  ChevronDown,
   Check,
 } from "lucide-react";
 import { projects, Project } from "@/data/projects";
@@ -48,6 +51,7 @@ const iconMap: Record<Project["icon"], typeof Phone> = {
   truck: Truck,
   zap: Zap,
   scale: Scale,
+  chat: MessageSquare,
 };
 
 const gradientMap: Record<Project["icon"], string> = {
@@ -70,12 +74,22 @@ const gradientMap: Record<Project["icon"], string> = {
   truck: "linear-gradient(135deg, #fff7ed, #fed7aa)",
   zap: "linear-gradient(135deg, #fefce8, #fef08a)",
   scale: "linear-gradient(135deg, #f0f9ff, #bae6fd)",
+  chat: "linear-gradient(135deg, #f5f3ff, #ddd6fe)",
 };
 
-export default function FlagshipGrid({ lens }: { lens: IndustryId | null }) {
-  const visible = lens ? projects.filter((p) => p.tags.includes(lens)) : projects;
+const INITIAL_COUNT = 6;
 
-  if (lens && visible.length === 0) return null;
+export default function FlagshipGrid({ lens }: { lens: IndustryId | null }) {
+  const [expanded, setExpanded] = useState(false);
+  const all = lens ? projects.filter((p) => p.tags.includes(lens)) : projects;
+  const visible = expanded ? all : all.slice(0, INITIAL_COUNT);
+  const hiddenCount = all.length - visible.length;
+
+  useEffect(() => {
+    setExpanded(false);
+  }, [lens]);
+
+  if (lens && all.length === 0) return null;
 
   return (
     <section className="py-6">
@@ -141,6 +155,15 @@ export default function FlagshipGrid({ lens }: { lens: IndustryId | null }) {
           );
         })}
       </div>
+      {all.length > INITIAL_COUNT && (
+        <button
+          onClick={() => setExpanded((e) => !e)}
+          className="mt-5 mx-auto flex items-center gap-1.5 text-sm font-semibold text-[var(--accent)] hover:text-[var(--accent-hover)] transition-colors"
+        >
+          {expanded ? "Show fewer projects" : `View ${hiddenCount} more project${hiddenCount === 1 ? "" : "s"}`}
+          <ChevronDown className={`w-4 h-4 transition-transform ${expanded ? "rotate-180" : ""}`} />
+        </button>
+      )}
     </section>
   );
 }

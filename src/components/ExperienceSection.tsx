@@ -68,81 +68,78 @@ export default function ExperienceSection({ lens }: { lens: IndustryId | null })
         </p>
       </div>
 
-      <div className="flex flex-col gap-6">
-        {companies.map((company) => {
-          return (
-            <div
-              key={company.id}
-              className="bg-white rounded-xl border border-[var(--border)] p-5 md:p-6"
-              style={{ background: "var(--card)" }}
-            >
-              <div className="flex items-start gap-4 mb-4">
-                <div
-                  className="w-11 h-11 rounded-lg flex items-center justify-center font-bold text-sm shrink-0"
-                  style={{ background: "var(--accent-soft)", color: "var(--accent)" }}
-                >
-                  {company.initials}
-                </div>
-                <div className="min-w-0">
-                  <div className="flex flex-wrap items-baseline gap-x-2">
-                    <h3 className="text-lg font-semibold text-[var(--foreground)]">
-                      {company.name}
-                    </h3>
-                    <span className="text-xs text-[var(--text-muted)]">{company.period}</span>
-                  </div>
-                  <p className="text-sm text-[var(--text-secondary)] mt-0.5">
-                    {company.descriptor}
-                  </p>
-                </div>
+      <div className="flex flex-col gap-10">
+        {companies.map((company) => (
+          <div key={company.id}>
+            <div className="flex items-center gap-3 mb-4">
+              <div
+                className="w-10 h-10 rounded-lg flex items-center justify-center font-bold text-sm shrink-0"
+                style={{ background: "var(--accent-soft)", color: "var(--accent)" }}
+              >
+                {company.initials}
               </div>
-
-              <div className="flex flex-col gap-5 md:pl-15">
-                {company.roles.map((role) => {
-                  const roleAchievements = role.achievements;
-                  const sorted = lens
-                    ? [...roleAchievements].sort((a, b) => {
-                        const am = a.tags.includes(lens) ? 0 : 1;
-                        const bm = b.tags.includes(lens) ? 0 : 1;
-                        return am - bm;
-                      })
-                    : roleAchievements;
-
-                  return (
-                    <div key={role.title}>
-                      <div className="flex flex-wrap items-baseline gap-x-2 mb-1">
-                        <h4 className="text-sm font-semibold text-[var(--foreground)]">
-                          {role.title}
-                        </h4>
-                        <span className="text-xs text-[var(--text-muted)]">{role.period}</span>
-                      </div>
-                      <ul className="flex flex-col">
-                        {sorted.map((a, i) => (
-                          <AchievementRow
-                            key={i}
-                            achievement={a}
-                            match={lens ? a.tags.includes(lens) : true}
-                          />
-                        ))}
-                      </ul>
-                      {role.keyInitiatives && (
-                        <div className="flex flex-wrap gap-1.5 mt-2">
-                          {role.keyInitiatives.map((k) => (
-                            <span
-                              key={k}
-                              className="text-[11px] px-2 py-0.5 rounded-full font-medium text-[var(--text-muted)] border border-[var(--border)]"
-                            >
-                              {k}
-                            </span>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
+              <div className="min-w-0">
+                <div className="flex flex-wrap items-baseline gap-x-2">
+                  <h3 className="text-lg font-semibold text-[var(--foreground)]">
+                    {company.name}
+                  </h3>
+                  <span className="text-xs text-[var(--text-muted)]">{company.period}</span>
+                </div>
+                <p className="text-sm text-[var(--text-secondary)] mt-0.5">
+                  {company.descriptor}
+                </p>
               </div>
             </div>
-          );
-        })}
+
+            <div className="flex flex-col gap-4 md:pl-[52px]">
+              {company.roles.map((role) => {
+                const sorted = lens
+                  ? [...role.achievements].sort((a, b) => {
+                      const am = a.tags.includes(lens) ? 0 : 1;
+                      const bm = b.tags.includes(lens) ? 0 : 1;
+                      return am - bm;
+                    })
+                  : role.achievements;
+
+                return (
+                  <div
+                    key={role.title}
+                    className="bg-white rounded-xl border border-[var(--border)] p-5 md:p-6"
+                    style={{ background: "var(--card)" }}
+                  >
+                    <div className="flex flex-wrap items-baseline gap-x-2 mb-1">
+                      <h4 className="text-sm font-semibold text-[var(--foreground)]">
+                        {role.title}
+                      </h4>
+                      <span className="text-xs text-[var(--text-muted)]">{role.period}</span>
+                    </div>
+                    <ul className="flex flex-col">
+                      {sorted.map((a, i) => (
+                        <AchievementRow
+                          key={i}
+                          achievement={a}
+                          match={lens ? a.tags.includes(lens) : true}
+                        />
+                      ))}
+                    </ul>
+                    {role.keyInitiatives && (
+                      <div className="flex flex-wrap gap-1.5 mt-2">
+                        {role.keyInitiatives.map((k) => (
+                          <span
+                            key={k}
+                            className="text-[11px] px-2 py-0.5 rounded-full font-medium text-[var(--text-muted)] border border-[var(--border)]"
+                          >
+                            {k}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );

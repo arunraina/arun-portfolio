@@ -26,7 +26,8 @@ export interface Project {
     | "brain"
     | "truck"
     | "zap"
-    | "scale";
+    | "scale"
+    | "chat";
   tags: IndustryId[];
 }
 
@@ -40,7 +41,7 @@ export const projects: Project[] = [
       "Turned a live-streaming behavioral signal into a per-minute expert marketplace — from a 62%-click MVP to a stable, real-time consultation platform.",
     impact: ["5x → 8x LTV/CAC", "ARPU ₹142 → ₹286", "Calls/user 2.7 → 6"],
     icon: "call",
-    tags: ["marketplace", "mobile-app", "live-streaming", "b2c-growth", "payments-fintech", "ai-ml"],
+    tags: ["marketplace", "mobile-app", "live-streaming", "b2c-growth", "payments-fintech", "ai-ml", "consulting-strategy"],
   },
   {
     slug: "emom-personalization",
@@ -113,6 +114,20 @@ export const projects: Project[] = [
     tags: ["agentic-ai", "ai-ml", "construction", "marketplace", "consulting-strategy"],
   },
   {
+    company: "Dunnhumby",
+    title: "Measurement & Behavior Analytics Chatbot",
+    category: "Agentic AI · Measurement · Analytics",
+    description:
+      "Exploring a conversational AI layer over the Measurement & Analytics Platform, so retailer stakeholders can ask natural-language questions about campaign uplift and customer behavior instead of navigating dashboards.",
+    impact: [
+      "Natural-language query layer",
+      "Built on existing ANCOVA uplift data",
+      "Extends the Launch Science AI/ML foundation",
+    ],
+    icon: "chat",
+    tags: ["agentic-ai", "ai-ml", "b2b-saas", "consulting-strategy"],
+  },
+  {
     slug: "quick-fix-dispatch",
     company: "Griffy",
     title: "Quick Fix — Provider Dispatch & Assignment",
@@ -154,7 +169,7 @@ export const projects: Project[] = [
       "Built the Creator Earning Academy and a gamified progression system that turned casual creators into habitual, monetizing power users.",
     impact: ["+180% activation", "+116% supply-side conversion", "+320% usage"],
     icon: "trophy",
-    tags: ["b2c-growth", "marketplace", "mobile-app"],
+    tags: ["b2c-growth", "marketplace", "mobile-app", "consulting-strategy"],
   },
   {
     slug: "corporate-events-b2b",
@@ -209,7 +224,7 @@ export const projects: Project[] = [
       "Built a paid-promotion layer — platform ads and creator 'boost' — alongside platform and creator subscriptions, adding a third monetization pillar beyond gifting and calls.",
     impact: ["Paid creator boost/promotion", "Platform subscription tier", "New ads revenue pillar"],
     icon: "megaphone",
-    tags: ["marketplace", "payments-fintech", "b2c-growth"],
+    tags: ["marketplace", "payments-fintech", "b2c-growth", "consulting-strategy"],
   },
   {
     slug: "search-discovery-onboarding",
