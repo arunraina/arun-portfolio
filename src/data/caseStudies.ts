@@ -333,32 +333,41 @@ export const caseStudies: CaseStudy[] = [
     company: "Dunnhumby",
     title: "Test & Learn Experimentation Platform",
     subtitle:
-      "Giving Tier-1 retailers the ability to design and run their own controlled experiments, instead of consuming dunnhumby's recommendations on faith.",
+      "Giving Tier-1 retailers self-serve, statistically rigorous A/B testing — controlled experiments they design and run themselves, instead of consuming dunnhumby's recommendations on faith.",
     tags: ["b2b-saas", "ai-ml"],
     metrics: [
       { label: "Campaign setup time", value: "30–40% faster" },
       { label: "Measurement method", value: "ANCOVA-based uplift" },
+      { label: "Engineering squads", value: "6" },
+      { label: "Tier-1 retailers live", value: "5+" },
     ],
     context: {
       heading: "Retailers didn't want to just trust the model",
       body: [
-        "dunnhumby's personalization recommendations are only as credible as a retailer's ability to verify them. Enterprise retail customers wanted to design and run their own controlled experiments across channels before committing to a wider rollout of any offer or promotion — proof, not just a recommendation.",
+        "dunnhumby's personalization recommendations are only as credible as a retailer's ability to verify them. Enterprise retail customers — Tesco, John Lewis Partners, Coop, Metro — wanted to design and run their own controlled experiments across channels before committing to a wider rollout of any offer or promotion. Proof, not just a recommendation.",
+        "Every one of those requests, before this platform existed, meant dunnhumby engineering configuring a bespoke test by hand — a test/control split, a measurement window, a readout — one retailer and one offer at a time. That doesn't scale across 5+ Tier-1 accounts running experiments continuously.",
       ],
     },
     product: {
-      heading: "Experimentation as a retailer-facing capability",
+      heading: "Experimentation as a retailer-facing capability, not a service ticket",
       body: [
-        "Built and scaled the Test & Learn platform enabling enterprise customers to execute controlled experiments across multiple channels themselves, reducing campaign setup time by 30–40% and unlocking new commercial opportunities that depended on retailers being able to prove impact quickly.",
+        "Built and scaled the Test & Learn platform enabling enterprise customers to design and execute controlled experiments across multiple channels themselves — choosing the audience, the test/control split and the offer being evaluated — without a dunnhumby engineer configuring it for them each time.",
+        "Owned this as part of the broader EMOM personalization platform, working with six engineering squads and US-based retailer stakeholders across time zones, since a Tier-1 account's experimentation needs get scoped and prioritized against a live commercial roadmap, not decided from a backlog in isolation.",
       ],
     },
     decisions: [
       {
         heading: "1. Self-serve experimentation instead of a bespoke ask each time",
-        body: "Every prior request to test a new offer meant a bespoke, manually configured experiment. Productizing controlled experiments as a platform capability meant retailers could design and launch their own tests without dunnhumby engineering time per test.",
+        body: "Every prior request to test a new offer meant a bespoke, manually configured experiment. Productizing controlled experiments as a platform capability meant retailers could design and launch their own A/B tests without dunnhumby engineering time per test — turning a services request into a self-serve product feature.",
+        insight: "Cut campaign setup time by 30–40% by removing the per-test engineering step entirely.",
       },
       {
         heading: "2. ANCOVA-based uplift, not naive before/after comparison",
-        body: "Enhanced the Measurement & Analytics Platform by introducing ANCOVA-based uplift methodologies, so campaign impact was measured with statistical rigor that accounted for pre-existing differences between test and control groups, rather than a naive before/after read.",
+        body: "A simple before/after read on a retail campaign is misleading — test and control groups rarely start from identical baselines, and a naive comparison attributes pre-existing differences to the campaign itself. Enhanced the Measurement & Analytics Platform by introducing ANCOVA-based uplift methodologies, so campaign impact was measured with statistical rigor that adjusts for those baseline differences before reporting an effect.",
+      },
+      {
+        heading: "3. Rigor had to survive self-serve, not just exist at launch",
+        body: "Handing retailers control over test design meant the platform's job shifted from running experiments correctly to constraining how they could be set up — audience split, measurement window and offer configuration all needed guardrails baked into the product itself, since a misconfigured test produces a confident but wrong readout, and nobody downstream would know to question it.",
       },
     ],
   },
