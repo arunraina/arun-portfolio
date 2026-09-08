@@ -331,43 +331,50 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "test-learn-experimentation",
     company: "Dunnhumby",
-    title: "Test & Learn Experimentation Platform",
+    title: "Test & Learn: A/B Testing in the Offer Nomination Flow",
     subtitle:
-      "Giving Tier-1 retailers self-serve, statistically rigorous A/B testing — controlled experiments they design and run themselves, instead of consuming dunnhumby's recommendations on faith.",
+      "Bringing controlled experimentation to personalized offers by putting it inside the workflow offer managers already use, instead of a separate experimentation tool nobody would adopt.",
     tags: ["b2b-saas", "ai-ml"],
     metrics: [
-      { label: "Campaign setup time", value: "30–40% faster" },
-      { label: "Measurement method", value: "ANCOVA-based uplift" },
-      { label: "Engineering squads", value: "6" },
-      { label: "Tier-1 retailers live", value: "5+" },
+      { label: "Testable variables (V1)", value: "4" },
+      { label: "Significance tiers", value: "High / Directional / None" },
+      { label: "Duplicate offers needed", value: "0" },
+      { label: "Status", value: "V1 shipped" },
     ],
     context: {
-      heading: "Retailers didn't want to just trust the model",
+      heading: "Offer managers had no way to test a decision that moved margin",
       body: [
-        "dunnhumby's personalization recommendations are only as credible as a retailer's ability to verify them. Enterprise retail customers — Tesco, John Lewis Partners, Coop, Metro — wanted to design and run their own controlled experiments across channels before committing to a wider rollout of any offer or promotion. Proof, not just a recommendation.",
-        "Every one of those requests, before this platform existed, meant dunnhumby engineering configuring a bespoke test by hand — a test/control split, a measurement window, a readout — one retailer and one offer at a time. That doesn't scale across 5+ Tier-1 accounts running experiments continuously.",
+        "EMOM is dunnhumby's personalized offer management and measurement suite. The users are offer managers at grocery retailers — including a top-5 European grocer and other major grocery and retail clients across the UK, Norway and New Zealand — who plan, target and measure personalized offers against a retailer's loyalty customer base.",
+        "Discount depth, mechanic (percentage off vs money off), offer duration and offer copy all move redemption and margin, and none of it was being tested. Offer managers optimized on precedent and intuition because the platform gave them no way to do otherwise. Comparing two versions of an offer meant building both end to end, splitting the audience by hand with no guarantee the groups were comparable, then reconciling results across two separate campaign records afterward with no clean attribution of which variant drove the difference. Effort was high and the answer was untrustworthy, so testing rarely happened.",
       ],
     },
     product: {
-      heading: "Experimentation as a retailer-facing capability, not a service ticket",
+      heading: "A/B testing on the Creatives step, not a separate module",
       body: [
-        "Built and scaled the Test & Learn platform enabling enterprise customers to design and execute controlled experiments across multiple channels themselves — choosing the audience, the test/control split and the offer being evaluated — without a dunnhumby engineer configuring it for them each time.",
-        "Owned this as part of the broader EMOM personalization platform, working with six engineering squads and US-based retailer stakeholders across time zones, since a Tier-1 account's experimentation needs get scoped and prioritized against a live commercial roadmap, not decided from a backlog in isolation.",
+        "Shipped A/B testing embedded inside the existing offer nomination flow (Information → Audience → Redemption → Creatives). On Creatives, the offer manager turns on A/B testing, picks the variable to test, defines the variants, and the platform handles audience allocation and the control group — one offer, multiple variants, no duplicate setup.",
+        "V1 covers four testable variables: offer text, mechanics, dates, and audience percentage. Measurement lives in the existing measurement dashboard the same offer managers already read, reporting exposure, redemption, sales uplift and incremental ROAS, with every result flagged at one of three tiers — high statistical significance, directional, or not significant — rather than a binary pass/fail.",
       ],
     },
     decisions: [
       {
-        heading: "1. Self-serve experimentation instead of a bespoke ask each time",
-        body: "Every prior request to test a new offer meant a bespoke, manually configured experiment. Productizing controlled experiments as a platform capability meant retailers could design and launch their own A/B tests without dunnhumby engineering time per test — turning a services request into a self-serve product feature.",
-        insight: "Cut campaign setup time by 30–40% by removing the per-test engineering step entirely.",
+        heading: "1. Embedded in the nomination flow, not a standalone experimentation module",
+        body: "Adoption was the binding constraint, not capability. Offer managers had no experimentation habit, and moving them into a new tool would have killed usage before it started. Cost: a test can only express what a single nomination can express — cross-offer designs and holdout groups need a different home later.",
       },
       {
-        heading: "2. ANCOVA-based uplift, not naive before/after comparison",
-        body: "A simple before/after read on a retail campaign is misleading — test and control groups rarely start from identical baselines, and a naive comparison attributes pre-existing differences to the campaign itself. Enhanced the Measurement & Analytics Platform by introducing ANCOVA-based uplift methodologies, so campaign impact was measured with statistical rigor that adjusts for those baseline differences before reporting an effect.",
+        heading: "2. Platform-managed uniform allocation, not manual weighting",
+        body: "Hand-split audiences were the biggest single reason results weren't trusted, since nothing guaranteed the two groups were comparable. Removing manual control removed that failure mode. Cost: no risk-limited designs, like a 90/10 rollout, which power users will eventually want.",
       },
       {
-        heading: "3. Rigor had to survive self-serve, not just exist at launch",
-        body: "Handing retailers control over test design meant the platform's job shifted from running experiments correctly to constraining how they could be set up — audience split, measurement window and offer configuration all needed guardrails baked into the product itself, since a misconfigured test produces a confident but wrong readout, and nobody downstream would know to question it.",
+        heading: "3. Single-variable A/B first, multivariate deferred",
+        body: "Multivariate testing splits an audience into cells, and most offer-level audiences aren't large enough to fill them. An underpowered sophisticated test produces confident-looking noise, which is worse than a readable simple test. Multivariate ships once there's evidence audience sizes support it.",
+      },
+      {
+        heading: "4. Three-tier significance, not a binary verdict",
+        body: "Marketers act on direction as often as they act on proof. High, directional and not-significant tiers let them use a weak signal without mistaking it for a strong one.",
+      },
+      {
+        heading: "5. What I'd do differently",
+        body: "The enablement material shipped alongside the feature included a best-practices section — set a proper test duration, avoid over-segmentation, use a sensible test/control split, make sure there's enough data for significance. That's the product's job, not a slide's. Minimum-duration warnings and sample-size guardrails should have been built into the flow itself in V1. Training users out of a failure mode in a document while the flow still lets them fall into it isn't a fix, it's a delay.",
       },
     ],
   },

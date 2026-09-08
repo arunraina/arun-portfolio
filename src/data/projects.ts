@@ -251,11 +251,11 @@ export const projects: Project[] = [
   {
     slug: "test-learn-experimentation",
     company: "Dunnhumby",
-    title: "Test & Learn Experimentation Platform",
+    title: "Test & Learn: A/B Testing in the Offer Nomination Flow",
     category: "B2B SaaS · Experimentation · AI/ML",
     description:
-      "Built and scaled the controlled-experimentation platform enterprise retailers use to design, run and measure tests across channels before wider rollout.",
-    impact: ["30–40% faster campaign setup", "Controlled experiments at scale", "Unlocked new commercial offers"],
+      "Shipped A/B testing embedded inside the offer nomination flow, so retail offer managers can test copy, mechanics, dates and audience without building duplicate offers or hand-splitting audiences.",
+    impact: ["4 testable variables at V1", "Platform-managed control groups", "3-tier statistical significance"],
     icon: "flask",
     tags: ["b2b-saas", "ai-ml"],
   },
