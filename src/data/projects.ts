@@ -27,7 +27,8 @@ export interface Project {
     | "truck"
     | "zap"
     | "scale"
-    | "chat";
+    | "chat"
+    | "package";
   tags: IndustryId[];
 }
 
@@ -86,6 +87,17 @@ export const projects: Project[] = [
     impact: ["0→1 marketplace, full stack", "Vendor KYC & trust workflows", "Escrow-based payments"],
     icon: "building",
     tags: ["construction", "marketplace", "consulting-strategy", "payments-fintech", "logistics", "finance-tax"],
+  },
+  {
+    slug: "griffy-supply-materials",
+    company: "Griffy",
+    title: "Griffy Supply — B2B Materials & Distributor ERP Integration",
+    category: "B2B SaaS · Supply Chain · Construction",
+    description:
+      "Designed the B2B materials ordering module — canonical catalogue, honest stock-visibility tiers, credit limit checks and an ERP adapter contract — for contractors ordering from distributors who still run Tally on a desktop.",
+    impact: ["3-tier stock honesty model", "7-entity canonical ERP contract", "<2% target oversell rate"],
+    icon: "package",
+    tags: ["construction", "b2b-saas", "marketplace", "logistics"],
   },
   {
     slug: "vendor-crm-lead-management",

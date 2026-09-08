@@ -251,12 +251,68 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
+    slug: "griffy-supply-materials",
+    company: "Griffy",
+    title: "Griffy Supply — B2B Materials Ordering & Distributor ERP Integration",
+    subtitle:
+      "Giving contractors a written stock and price commitment from material distributors who still run Tally on a desktop — without gating coverage on ERP integration.",
+    tags: ["construction", "b2b-saas", "marketplace", "logistics"],
+    metrics: [
+      { label: "Stock honesty model", value: "3 tiers" },
+      { label: "Canonical ERP entities", value: "7" },
+      { label: "Target oversell rate", value: "< 2%" },
+      { label: "Soft reservation TTL", value: "30 min" },
+    ],
+    context: {
+      heading: "Construction material buying in Tier 2/3 India runs on phone calls and a paper ledger",
+      body: [
+        "A contractor building a 2,400 sq ft house in Baramulla needs 480 bags of cement, 3.2 tonnes of TMT and sanitary ware, ordered in waves over five months. Today that means price discovery by phone across four dealers with no written record; a dealer saying 'available' when they mean 'I can arrange it by Thursday,' discovered only when the truck doesn't arrive and the slab pour slips a day; informal 30–60 day credit with no enforced limit, exposure discovered at reconciliation during a dispute; and partial fulfilment — 200 bags ordered, 140 delivered — tracked in someone's memory.",
+        "The distributor's side is no better: stock lives in Tally Prime or Busy, updated when the accountant gets to it. Neither side has a system of record the other trusts, so a contractor can't commit to a build schedule because they can't see, in writing, what a distributor actually has and what it will cost.",
+      ],
+    },
+    product: {
+      heading: "A materials module built on one canonical catalogue and three honest stock tiers",
+      body: [
+        "Scoped v1 around a canonical material master with a distributor SKU mapping layer, live-enough stock visibility, contractor-tier pricing, a credit limit check at order placement, the order lifecycle through dispatch and proof of delivery, partial-fulfilment reconciliation, and an ERP adapter for each distributor's system of record. Deliberately out of scope for v1: Griffy-underwritten credit, logistics/fleet management, returns and warranty, and auto-replenishment.",
+        "The north star metric is the share of B2B order value transacted against platform-confirmed stock — orders where the contractor never had to pick up the phone to check.",
+      ],
+    },
+    decisions: [
+      {
+        heading: "1. A canonical material master, not per-distributor SKUs",
+        body: "One distributor lists 'OPC 43 Ambuja 50kg,' another lists 'Ambuja cement bag,' a third lists 'AMB-OPC43.' Without resolution, search fails, price comparison is meaningless and stock lookups miss. Designed a Griffy canonical material master (brand, grade, pack size, UoM, HSN code, GST rate) with a many-to-one distributor SKU mapping table, filled once per distributor during a guided onboarding flow, with unmapped SKUs routed to a review queue instead of failing silently. The catalogue isn't a data-entry task — search, price comparison, stock check and order push are all unusable without it.",
+      },
+      {
+        heading: "2. Stock visibility: three honest tiers, not one all-or-nothing integration",
+        body: "You can't promise real-time stock from a distributor running Tally on a desktop that gets switched off at 8pm — promising it and failing destroys the trust the product exists to create. Designed three integration tiers surfaced honestly in the UI: Connected (ERP adapter polls every 15 min, shows exact count and freshness), Lite (distributor toggles In stock / Low / Out plus a lead time in the Griffy app), and Manual (no signal, routes to RFQ instead of a direct order).",
+        insight: "Most distributors start at Lite. Coverage was never gated on integration — integration is an upgrade that earns better placement and faster confirmation. The single most important scoping decision in the project.",
+      },
+      {
+        heading: "3. Credit: check exposure before commit, never auto-confirm on data you can't date",
+        body: "Exposure is outstanding invoices plus open confirmed orders plus the order being placed. At order placement, Griffy pulls the distributor's ledger: exposure under limit auto-confirms, exposure over limit with nothing overdue past 60 days routes to the distributor for one-tap approval, and any invoice overdue past 90 days hard-blocks the order. If the ledger call fails, the platform falls back to the last cached value with an age stamp and degrades to distributor approval rather than auto-confirming on stale data.",
+      },
+      {
+        heading: "4. Overselling: optimistic soft reservation, not a shared transaction",
+        body: "Griffy can't hold a transaction open across its own database and a distributor's Tally instance — there's no shared commit. Placing an order decrements available stock in Griffy's cache without touching the ERP; the ERP write happens on distributor confirmation. If the next poll shows insufficient stock, the order drops into a short-supply flow offering partial fulfilment, a substitute SKU, or an alternate distributor, in that order.",
+        insight: "Target oversell rate under 2% of confirmed orders — the leading indicator of whether the stock tier labelling is honest.",
+      },
+      {
+        heading: "5. One ERP contract against canonical entities — the adapter translates, it never carries business logic",
+        body: "Indian distributors run Tally Prime, Busy, Marg or SAP Business One, so the contract is written against seven canonical entities (material master, stock snapshot, price list, party ledger, sales order, dispatch note, invoice) with one adapter built per ERP — the platform never learns what a Tally voucher is. Every write carries an idempotency key set to the Griffy order ID so a retried push can't create a second sales order; every read carries an `asOf` timestamp, since a stock number without one isn't data; credit rules, reservation TTL and tier thresholds live in Griffy, not the adapter, so they can change without a connector release; and every capability has a defined degraded behaviour when the ERP is unreachable, keeping the order flow alive.",
+      },
+      {
+        heading: "6. Sequencing proof before integration: RFQ, then Lite stock, then the Tally connector",
+        body: "Phase 0 shipped the canonical catalogue and RFQ with no stock and no credit, to prove contractors would submit a written requirement at all. Phase 1 shipped the Lite stock tier, tiered pricing, the order lifecycle and proof of delivery, to prove distributors would maintain a stock signal. Only in Phase 2 did the Tally adapter, reservation logic and credit check ship — deliberately sequenced after Phase 1, since building the connector first would mean shipping an integration to a workflow nobody had validated.",
+      },
+    ],
+  },
+  {
     slug: "atlas-ai-decision-layer",
     company: "Griffy",
     title: "Atlas — AI Decision Layer",
     subtitle:
       "Designing Griffy's AI architecture as a decision layer over a house's whole lifecycle — a typed planner and tool registry, deliberately not a chatbot.",
-    tags: ["agentic-ai", "ai-ml", "construction", "marketplace", "consulting-strategy"],
+    tags: ["agentic-ai", "ai-ml", "construction", "marketplace", "b2b-saas", "consulting-strategy"],
     metrics: [
       { label: "Live since", value: "Aug 2026" },
       { label: "Architecture", value: "1 planner, typed tools" },
@@ -288,6 +344,11 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "3. Reusing existing endpoints instead of rewriting the platform",
         body: "The typed tools wrap REST endpoints that already existed rather than rewriting them — search, materials, availability and cost estimation were already deterministic services; Atlas's job was to expose them safely to a planner, not replace them.",
+      },
+      {
+        heading: "4. (Proposed) Extending Atlas into B2B: a PO Intake Agent with human-in-the-loop governance",
+        body: "The same manual-intake problem shows up on the B2B side: a material distributor (the seller) gets a contractor's order by phone, WhatsApp or email — free text, no structure — and re-types it into Tally by hand. The proposal reuses Atlas's existing typed-extraction pattern (BookingIntent/IntentProposal today; POIntent for this case) to turn that free text into structured line items — matched SKU, quantity, unit — against the canonical material master, each line carrying the model's own confidence rather than a guess presented as fact. A line below the confidence threshold, an unmapped SKU, or a stock check that doesn't clear becomes an exception routed to the distributor, not silently dropped or auto-corrected, the same 'never invent a supplier or product' rule already enforced for every other agent. The governance isn't bolted on afterward: ToolRegistry already declares `mutates` per tool, and AtlasOrchestrator.invokeGuarded already refuses to run a mutating tool and returns ConfirmationRequired regardless of what an agent's catalogue claims. So the PO Intake Agent can extract and propose a purchase order today under the exact rule that already holds for every agent — it stays unable to write one until a human explicitly approves, without a single new governance mechanism being built.",
+        insight: "ROI framed as a model to size before building, not a claimed result: (manual PO intake time − agent-assisted intake time) × monthly order volume per distributor. The same structure that makes this safe to ship also makes it cheap to prove out on real volume before committing engineering time.",
       },
     ],
   },

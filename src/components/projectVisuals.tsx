@@ -19,6 +19,7 @@ import {
   Zap,
   Scale,
   MessageSquare,
+  Package,
 } from "lucide-react";
 import { Project } from "@/data/projects";
 
@@ -43,6 +44,7 @@ export const iconMap: Record<Project["icon"], typeof Phone> = {
   zap: Zap,
   scale: Scale,
   chat: MessageSquare,
+  package: Package,
 };
 
 export const gradientMap: Record<Project["icon"], string> = {
@@ -66,6 +68,7 @@ export const gradientMap: Record<Project["icon"], string> = {
   zap: "linear-gradient(135deg, #c9a227, #9c7d1e)",
   scale: "linear-gradient(135deg, #0e7a8c, #0a5c6b)",
   chat: "linear-gradient(135deg, #5c3d7c, #442d5c)",
+  package: "linear-gradient(135deg, #4a5d23, #364318)",
 };
 
 export const dotPattern = "radial-gradient(rgba(255,255,255,0.16) 1px, transparent 1px)";
