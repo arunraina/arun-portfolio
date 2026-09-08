@@ -519,8 +519,9 @@ export const caseStudies: CaseStudy[] = [
       "Nojoto's first physical-product commerce line — from product selection to fulfillment — built around creator-branded electronics.",
     tags: ["ecommerce", "marketplace", "logistics"],
     metrics: [
+      { label: "Items sold", value: "8,000+" },
+      { label: "Avg. order value", value: "₹1,250" },
       { label: "Category", value: "Creator-branded electronics" },
-      { label: "Scope", value: "Selection → fulfillment" },
     ],
     context: {
       heading: "Creators had audiences, not a way to sell to them",
@@ -538,6 +539,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "1. Starting with owned, branded products, not a generic catalog",
         body: "Choosing creator-branded electronics as the wedge into commerce — rather than opening a generic third-party marketplace — kept the first version scoped to a supply chain Nojoto actually controlled.",
+        insight: "8,000+ units sold at an average order value of ₹1,250.",
       },
       {
         heading: "2. Owning the full chain end-to-end",
@@ -553,8 +555,9 @@ export const caseStudies: CaseStudy[] = [
       "Two very different marketplaces — construction services and creator commerce — hitting the same problem: once someone pays, what happens next has to be visible and reversible.",
     tags: ["logistics", "ecommerce", "construction", "payments-fintech", "marketplace"],
     metrics: [
+      { label: "Resolved within 24h", value: "99%" },
+      { label: "Avg. response time", value: "8 min" },
       { label: "Griffy", value: "Booking → completion tracking" },
-      { label: "Nojoto", value: "Refunds, returns, reconciliation" },
     ],
     context: {
       heading: "Payment is the start of the operational problem, not the end",
@@ -576,6 +579,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "2. Reconciliation as a designed workflow, not a support ticket queue",
         body: "At Nojoto, refund, cancellation and reconciliation flows were defined as their own workflow across gateway transactions, rather than handled case-by-case through support — necessary once payment volume made manual reconciliation unworkable.",
+        insight: "99% of support tickets resolved within 24 hours, with an average first-response time of 8 minutes.",
       },
     ],
   },
@@ -587,8 +591,9 @@ export const caseStudies: CaseStudy[] = [
       "Keeping content creation inside the app, instead of losing creators to Instagram and Snapchat for the actual making of content.",
     tags: ["marketplace", "mobile-app", "live-streaming", "b2c-growth"],
     metrics: [
-      { label: "Tools shipped", value: "Write-on-Photo, Stories, audio rooms" },
-      { label: "Video", value: "In-app recording & editing" },
+      { label: "Creator retention", value: "33% → 86%" },
+      { label: "Creator conversion", value: "5% → 38%" },
+      { label: "Content per creator", value: "2.5 → 8 stories" },
     ],
     context: {
       heading: "Creators were making content elsewhere and just posting the link",
@@ -606,6 +611,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "1. Write-on-Photo as the lowest-friction way in",
         body: "Text over an image is a far smaller ask than a full video edit — prioritizing it first meant more people could clear the bar to post at all.",
+        insight: "Content created per creator rose from 2.5 to 8 stories; retention jumped from 33% to 86% and conversion from 5% to 38%.",
       },
       {
         heading: "2. Stories as its own format, not folded into the main feed",
@@ -625,8 +631,9 @@ export const caseStudies: CaseStudy[] = [
       "Adding a third monetization pillar — paid visibility — alongside consumer-paid gifting and calls.",
     tags: ["marketplace", "payments-fintech", "b2c-growth"],
     metrics: [
-      { label: "New pillar", value: "Paid visibility" },
-      { label: "Products", value: "Boost, platform ads, subscriptions" },
+      { label: "Paying users", value: "22,000+" },
+      { label: "ARPU", value: "₹28" },
+      { label: "Avg. boosts / user / month", value: "3.5" },
     ],
     context: {
       heading: "Every dollar on the platform came from the consumer",
@@ -644,6 +651,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "1. Separating creator boost from platform advertising",
         body: "A creator paying to promote themselves and an advertiser paying for platform placement are different buyers with different intents — building them as two distinct products sharing common infrastructure kept each one's pricing and targeting honest.",
+        insight: "22,000+ paying users, ₹28 ARPU, averaging 3.5 boost purchases per user per month.",
       },
       {
         heading: "2. Subscriptions alongside pay-per-boost, not instead of it",
@@ -659,8 +667,9 @@ export const caseStudies: CaseStudy[] = [
       "Rebuilding search on Elasticsearch and treating onboarding and profile completion as one connected journey, not two separate flows.",
     tags: ["ai-ml", "b2c-growth", "consulting-strategy", "marketplace", "mobile-app"],
     metrics: [
+      { label: "Onboarding completion", value: "92%" },
+      { label: "Drop-off", value: "25% → 4%" },
       { label: "Search", value: "Elasticsearch-powered" },
-      { label: "Onboarding", value: "Funnel + profile journey redesigned" },
     ],
     context: {
       heading: "An incomplete profile was itself a churn predictor",
@@ -682,6 +691,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "2. Treating onboarding and profile completion as one journey",
         body: "Onboarding funnels and profile completion were redesigned as a single connected path rather than two separate flows, since an incomplete profile was itself a leading indicator of early drop-off.",
+        insight: "Onboarding completion rose to 92%; drop-off fell from 25% to 4%.",
       },
     ],
   },
@@ -693,8 +703,9 @@ export const caseStudies: CaseStudy[] = [
       "One shared financial backbone underneath every monetization product, instead of each feature inventing its own accounting.",
     tags: ["payments-fintech", "finance-tax", "consulting-strategy", "marketplace"],
     metrics: [
-      { label: "Systems", value: "Ledger, invoicing, audit, payouts" },
-      { label: "Gate", value: "KYC-required" },
+      { label: "Monthly paying users", value: "50,000+" },
+      { label: "Avg. paying-user earnings", value: "₹18,000/mo" },
+      { label: "Creators earning ₹1L+/mo", value: "100+" },
     ],
     context: {
       heading: "Every monetization product ultimately owed someone money",
@@ -712,6 +723,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "1. One shared ledger instead of per-feature payout logic",
         body: "Every monetization product settles through the same ledger and payout system, rather than each feature building its own version of 'how creators get paid' — the same lesson that shaped the Payments & Checkout work.",
+        insight: "50,000+ monthly paying users; the average paying user earns ₹18,000/month, and 100+ creators earn ₹1L+/month.",
       },
       {
         heading: "2. Gating payouts on KYC, not treating compliance as separate",
