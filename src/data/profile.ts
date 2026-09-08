@@ -76,13 +76,13 @@ export const skillGroups = [
   {
     label: "AI-Augmented Workflows",
     icon: "brain" as const,
-    variant: "accent" as const,
+    variant: "light" as const,
     items: ["Claude Code", "Cursor", "Copilot", "Gemini", "Atlas AI Agent"],
   },
   {
     label: "Product & Analytics Tools",
     icon: "wrench" as const,
-    variant: "navy" as const,
+    variant: "light" as const,
     items: [
       "Mixpanel",
       "Amplitude",
