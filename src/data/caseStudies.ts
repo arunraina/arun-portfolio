@@ -4,6 +4,8 @@ export interface DesignArtifact {
   label: string;
   description: string;
   url: string;
+  /** Local image paths (public/designs/...) to show in the in-portfolio gallery. Empty until real screenshots are added. */
+  images?: string[];
 }
 
 export interface CaseStudy {
@@ -368,6 +370,8 @@ export const caseStudies: CaseStudy[] = [
       "Unifying Email, SMS and Direct Mail behind one targeting and offer-decisioning layer, so a customer stops getting conflicting messages across channels.",
     tags: ["b2b-saas", "ecommerce"],
     metrics: [
+      { label: "Campaign setup effort", value: "-30% time" },
+      { label: "Recurring campaign frequency", value: "1.5x" },
       { label: "Channels unified", value: "Email, SMS, Direct Mail" },
       { label: "Decisioning", value: "Built-in, not per-channel" },
     ],
@@ -387,6 +391,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "1. Decisioning as a shared layer, not a per-channel setting",
         body: "The 'which offer, which channel, which moment' decision moved out of each channel team's hands and into one offer-decisioning layer every channel reads from — so a customer's Email and SMS treatment come from the same logic rather than three separately configured tools.",
+        insight: "Cut campaign setup effort by 30% and lifted recurring campaign frequency by 1.5x.",
       },
       {
         heading: "2. Designing for lifecycle stage, not batch-and-blast",

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Lightbulb } from "lucide-react";
+import { ArrowLeft, Lightbulb, Image as ImageIcon } from "lucide-react";
 import { caseStudyMap, caseStudies } from "@/data/caseStudies";
 import { projects } from "@/data/projects";
 import { industryMap } from "@/data/industries";
@@ -179,20 +179,24 @@ export default async function CaseStudyPage({
             <h2 className="text-xl font-bold text-[var(--foreground)] mt-12 mb-5">
               Design artifacts
             </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {cs.artifacts.map((a) => (
-                <div
-                  key={a.label}
-                  className="rounded-xl p-5"
-                  style={{ background: "var(--card)", border: "1px solid var(--border)" }}
-                >
-                  <p className="text-sm font-semibold text-[var(--foreground)]">{a.label}</p>
-                  <p className="text-xs text-[var(--text-secondary)] mt-1.5 leading-relaxed">
+            <Link
+              href={`/work/${cs.slug}/designs`}
+              className="block rounded-xl p-6 hover:border-[var(--accent)] transition-colors duration-150"
+              style={{ background: "var(--card)", border: "1px solid var(--border)" }}
+            >
+              <p className="text-sm font-semibold text-[var(--accent)] inline-flex items-center gap-1">
+                View design gallery <ImageIcon className="w-4 h-4" />
+              </p>
+              <ul className="mt-3 flex flex-col gap-1.5">
+                {cs.artifacts.map((a) => (
+                  <li key={a.label} className="text-sm text-[var(--text-secondary)]">
+                    <span className="font-medium text-[var(--foreground)]">{a.label}</span>
+                    {" — "}
                     {a.description}
-                  </p>
-                </div>
-              ))}
-            </div>
+                  </li>
+                ))}
+              </ul>
+            </Link>
           </>
         )}
 
