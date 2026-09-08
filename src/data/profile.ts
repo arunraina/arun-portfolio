@@ -14,7 +14,7 @@ export const profile = {
     "Product leader with 11+ years building and scaling consumer, marketplace, enterprise SaaS and payments products — from founding a two-sided marketplace to scaling a creator platform toward ~150M ARR, to shipping B2B SaaS personalization for Tier-1 global retailers.",
   longBio: [
     "I started as an entrepreneur, launching StayHappy, an early rental-accommodation venture, before founding Griffy, a two-sided marketplace connecting homeowners with architects, contractors, material suppliers and service professionals.",
-    "I then joined Nojoto as one of its earliest employees and grew into Head of Product, leading vision and execution for what became India's largest storytelling and creator platform — built 0→1→scale, launched the recommendation engine, creator and platform subscriptions, virtual gifting, live streaming and the creator marketplace, and helped scale the platform toward 100M+ users and ~150M ARR.",
+    "I then joined Nojoto as one of its earliest employees and grew into Head of Product, leading vision and execution for what became India's largest storytelling and creator platform — built 0→1→scale, launched the recommendation engine, creator and platform subscriptions, virtual gifting, live streaming and the creator marketplace, and helped scale the platform toward 30M+ users and ~150M ARR.",
     "I now work at Dunnhumby, the global leader in retail media and data science, building enterprise-grade personalization and decisioning products for retailers including Tesco, Coop and Metro.",
   ],
 };
@@ -159,6 +159,6 @@ export const earlyCareer = [
 export const highlights = [
   { metric: "11+ yrs", label: "Product leadership" },
   { metric: "~150M ARR", label: "Scaled at Nojoto" },
-  { metric: "100M+ users", label: "Consumer platform scale" },
+  { metric: "30M+ users", label: "Consumer platform scale" },
   { metric: "50M+", label: "Customer interactions at Dunnhumby" },
 ];
