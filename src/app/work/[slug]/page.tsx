@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Lightbulb, Image as ImageIcon } from "lucide-react";
+import { ArrowLeft, Lightbulb, Image as ImageIcon, ShieldCheck } from "lucide-react";
 import { caseStudyMap, caseStudies } from "@/data/caseStudies";
 import { projects } from "@/data/projects";
 import { industryMap } from "@/data/industries";
@@ -120,6 +120,81 @@ export default async function CaseStudyPage({
           ))}
         </div>
 
+        {cs.platform && cs.platform.length > 0 && (
+          <>
+            <h2 className="text-xl font-bold text-[var(--foreground)] mt-12 mb-5">Platform</h2>
+            <div className="flex flex-wrap gap-2">
+              {cs.platform.map((p) => (
+                <span
+                  key={p}
+                  className="text-xs px-3 py-1.5 rounded-full font-medium"
+                  style={{
+                    background: "var(--accent-soft)",
+                    color: "var(--accent)",
+                    border: "1px solid var(--accent-border)",
+                  }}
+                >
+                  {p}
+                </span>
+              ))}
+            </div>
+          </>
+        )}
+
+        {cs.flow && cs.flow.length > 0 && (
+          <>
+            <h2 className="text-xl font-bold text-[var(--foreground)] mt-12 mb-5">How it works</h2>
+            <div
+              className="rounded-xl p-6"
+              style={{ background: "var(--card)", border: "1px solid var(--border)" }}
+            >
+              {cs.flow.map((f, i) => (
+                <div key={i} className="flex gap-4">
+                  <div className="flex flex-col items-center">
+                    <div
+                      className="w-7 h-7 rounded-full flex items-center justify-center text-[11px] font-bold text-white shrink-0"
+                      style={{ background: "var(--accent)" }}
+                    >
+                      {i + 1}
+                    </div>
+                    {i < cs.flow!.length - 1 && (
+                      <div className="w-px flex-1 mt-1" style={{ background: "var(--border)" }} />
+                    )}
+                  </div>
+                  <div className={i < cs.flow!.length - 1 ? "pb-5" : ""}>
+                    <p className="text-sm font-bold text-[var(--foreground)] leading-snug">
+                      {f.step.replace(/^\d+\.\s*/, "")}
+                    </p>
+                    <p className="text-sm text-[var(--text-secondary)] leading-relaxed mt-1">{f.detail}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
+        {cs.guardrails && cs.guardrails.length > 0 && (
+          <>
+            <h2 className="text-xl font-bold text-[var(--foreground)] mt-12 mb-5">Guardrails</h2>
+            <div
+              className="rounded-xl p-6"
+              style={{ background: "var(--card)", border: "1px solid var(--border)" }}
+            >
+              <ul className="flex flex-col gap-3">
+                {cs.guardrails.map((g, i) => (
+                  <li key={i} className="flex items-start gap-2.5">
+                    <ShieldCheck
+                      className="w-4 h-4 shrink-0 mt-0.5"
+                      style={{ color: "var(--accent)" }}
+                    />
+                    <span className="text-sm text-[var(--text-secondary)] leading-relaxed">{g}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </>
+        )}
+
         <h2 className="text-xl font-bold text-[var(--foreground)] mt-12 mb-5">
           Notable product decisions
         </h2>
@@ -143,6 +218,26 @@ export default async function CaseStudyPage({
             </div>
           ))}
         </div>
+
+        {cs.successMetrics && cs.successMetrics.length > 0 && (
+          <>
+            <h2 className="text-xl font-bold text-[var(--foreground)] mt-12 mb-5">
+              How success is measured
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {cs.successMetrics.map((m, i) => (
+                <div
+                  key={i}
+                  className="rounded-xl p-5"
+                  style={{ background: "var(--card)", border: "1px solid var(--border)" }}
+                >
+                  <h3 className="text-sm font-bold text-[var(--foreground)] mb-1.5">{m.label}</h3>
+                  <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{m.body}</p>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
 
         {cs.customerInsights && cs.customerInsights.length > 0 && (
           <>

@@ -17,7 +17,15 @@ export interface CaseStudy {
   metrics: { label: string; value: string }[];
   context: { heading: string; body: string[] };
   product: { heading: string; body: string[] };
+  /** Tech/platform stack actually used, shown as a pill list. */
+  platform?: string[];
+  /** Step-by-step flow diagram, rendered as a numbered vertical stepper. */
+  flow?: { step: string; detail: string }[];
+  /** Rules actually enforced in code, not just stated in a prompt. */
+  guardrails?: string[];
   decisions: { heading: string; body: string; insight?: string }[];
+  /** How impact/success is actually tracked, distinct from the outcome `metrics` grid above. */
+  successMetrics?: { label: string; body: string }[];
   customerInsights?: { finding: string; response: string }[];
   artifacts?: DesignArtifact[];
 }
@@ -333,6 +341,58 @@ export const caseStudies: CaseStudy[] = [
         "That's the demand side of the same planner: a homeowner or contractor asking Atlas to find and book a consultation, or buy materials, is the concierge, discovery and materials agents in the existing catalogue doing exactly what they were built for. The proposed PO Intake Agent below is the supply side of the same architecture — the moment a distributor is the one submitting structured or semi-structured input, fulfilling or shipping a bulk order, rather than a customer asking a question.",
       ],
     },
+    platform: [
+      "NestJS API (apps/api/src/atlas)",
+      "Gemini — primary model for orchestration",
+      "Anthropic — alternate provider, same interface",
+      "Structured JSON outputs (closed schema)",
+      "PostgreSQL + Prisma — the services tools wrap",
+      "Next.js/React — /ai page, header entry, home section",
+    ],
+    flow: [
+      {
+        step: "1. Customer sends a message in plain language",
+        detail: "\"Need a plumber in Srinagar today\" or a distributor's WhatsApp order text — no form, no structured fields.",
+      },
+      {
+        step: "2. Orchestrator picks an agent, filters the tool list to what it's granted",
+        detail: "Default is the concierge agent. The model only ever sees the tools that agent's definition names — an ungranted tool isn't a temptation, it isn't in the list.",
+      },
+      {
+        step: "3. Model call, tools described as typed functions",
+        detail: "Gemini decides which of the granted tools to call, with what arguments, constrained by each tool's JSON Schema.",
+      },
+      {
+        step: "4. Every tool call is checked against `mutates` before it runs",
+        detail: "A mutating tool is refused outright — ConfirmationRequired — regardless of what the model asked for. No agent is granted one today, so this check currently always passes through to the next step.",
+      },
+      {
+        step: "5. Read-only tools run against real Griffy data",
+        detail: "search_professionals, search_materials, check_availability, estimate_project_cost — real rows from Postgres via existing deterministic services, never invented.",
+      },
+      {
+        step: "6. Plan → call → observe repeats, capped at 4 steps",
+        detail: "A multi-part ask (\"renovation needs labour and materials and a budget\") can call several tools in one turn before answering.",
+      },
+      {
+        step: "7. Reply returns with a full step trace",
+        detail: "Every tool called, in order, whether it succeeded, and how long it took — so a customer's answer is reviewable, not a black box.",
+      },
+      {
+        step: "8. No key, or quota exhausted → degrades, doesn't error",
+        detail: "Gemini quota is thin; when it runs out, the response falls back to a deterministic message rather than a failed request.",
+      },
+    ],
+    guardrails: [
+      "Never states a price, rating, distance or availability that didn't come from a tool result — written into every agent's system prompt, not left as an assumption.",
+      "Never invents a professional, supplier or product. A search returning nothing says so plainly; a new city with no coverage yet is a normal answer, not something to paper over.",
+      "Can't book, order or take payment. If the customer wants to proceed, the agent says what to tap — it never implies the action already happened.",
+      "An agent can only call tools its definition grants. The catalogue sent to the model is pre-filtered, and the invoke path re-checks it, so a hallucinated tool name returns an error result, not a lucky action.",
+      "Every mutating tool call is refused structurally, in the orchestrator itself — not left to the catalogue being correct. Granting a mutating tool later can't silently become 'the AI can spend money' without someone editing that one line.",
+      "Bounded reasoning loop. Capped at 4 plan → call → observe cycles — an agent that can call tools forever is an agent that can spend forever, and a slow correct answer loses to a fast one on a customer-facing endpoint.",
+      "Cold start stays honest. A new city with no coverage inherits the existing CityComingSoon behavior rather than a model confidently describing supply Griffy doesn't have.",
+      "Paid brand placement never enters organic ranking or duty-of-care assignment — labeled and rendered separately, never blended into an agent's answer.",
+    ],
     decisions: [
       {
         heading: "1. A planner plus a typed tool registry, not an agent swarm",
@@ -350,6 +410,28 @@ export const caseStudies: CaseStudy[] = [
         heading: "4. (Proposed) Extending Atlas into B2B: a PO Intake Agent with human-in-the-loop governance",
         body: "The same manual-intake problem shows up on the B2B side, in two shapes. A contractor's order arrives as free text — phone, WhatsApp or email, no structure — and gets re-typed into Tally by hand. And when a distributor is the one shipping a bulk order, the source is often their own Excel sheet — rows of SKU, quantity and unit already tabular, just never mapped against Griffy's canonical catalogue. The proposal reuses Atlas's existing typed-extraction pattern (BookingIntent/IntentProposal today; POIntent for this case) against either source — parsing prose or parsing spreadsheet rows both resolve to the same structured line items: matched SKU, quantity, unit, each carrying the model's own confidence rather than a guess presented as fact. A line below the confidence threshold, an unmapped SKU, or a stock check that doesn't clear becomes an exception routed to a human, not silently dropped or auto-corrected — the same 'never invent a supplier or product' rule already enforced for every other agent. The governance isn't bolted on afterward: ToolRegistry already declares `mutates` per tool, and AtlasOrchestrator.invokeGuarded already refuses to run a mutating tool and returns ConfirmationRequired regardless of what an agent's catalogue claims. So the PO Intake Agent can extract and propose a purchase order today — from a WhatsApp message or an uploaded Excel sheet — under the exact rule that already holds for every agent: it stays unable to write one until a human explicitly approves, without a single new governance mechanism being built.",
         insight: "ROI framed as a model to size before building, not a claimed result: (manual PO intake time − agent-assisted intake time) × monthly order volume per distributor. The same structure that makes this safe to ship also makes it cheap to prove out on real volume before committing engineering time.",
+      },
+    ],
+    successMetrics: [
+      {
+        label: "Degraded-turn rate",
+        body: "Every turn already returns a `degraded` flag — true when the answer came from the deterministic fallback rather than the model, usually a missing key or exhausted quota. Tracking this over time is the first health signal: a rising rate means customers are silently getting the fallback message instead of a real answer.",
+      },
+      {
+        label: "resolvedBy split — rules vs. model",
+        body: "POST /atlas/intent already tags every response 'rules' or 'model'. The split tells you how often the cheap deterministic path was enough on its own versus needing a model call — useful both for cost and for knowing which request shapes actually need the LLM.",
+      },
+      {
+        label: "Zero mutating-tool executions",
+        body: "Not a growth metric — a governance one. Every refused mutating-tool call logs a warning; counting them over time is the check that 'no agent can spend money' holds in production, not just in the code comment that states it.",
+      },
+      {
+        label: "Per-turn tool audit trail",
+        body: "The `steps` array on every turn — which tools ran, in what order, whether each succeeded, how long it took — is the raw input recommendation_logs would be built from. Not yet built; flagged here rather than implied.",
+      },
+      {
+        label: "North star (not yet instrumented)",
+        body: "Share of customer queries where Atlas's answer was acted on directly — booked, purchased — without falling back to manual browse. Honest status: this needs recommendation_logs, which CLAUDE.md already lists as not yet built. Naming the metric now is the point of putting it in a case study before it exists.",
       },
     ],
   },
