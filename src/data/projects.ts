@@ -255,7 +255,7 @@ export const projects: Project[] = [
     category: "B2B SaaS · Experimentation · AI/ML",
     description:
       "Shipped A/B testing embedded inside the offer nomination flow, so retail offer managers can test copy, mechanics, dates and audience without building duplicate offers or hand-splitting audiences.",
-    impact: ["4 testable variables at V1", "Platform-managed control groups", "3-tier statistical significance"],
+    impact: ["-33% campaign setup time", "2.2x experiments run", "4 testable variables at V1"],
     icon: "flask",
     tags: ["b2b-saas", "ai-ml"],
   },

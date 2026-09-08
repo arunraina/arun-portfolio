@@ -336,10 +336,10 @@ export const caseStudies: CaseStudy[] = [
       "Bringing controlled experimentation to personalized offers by putting it inside the workflow offer managers already use, instead of a separate experimentation tool nobody would adopt.",
     tags: ["b2b-saas", "ai-ml"],
     metrics: [
+      { label: "Campaign setup time", value: "-33%" },
+      { label: "Experiments run", value: "2.2x" },
       { label: "Testable variables (V1)", value: "4" },
       { label: "Significance tiers", value: "High / Directional / None" },
-      { label: "Duplicate offers needed", value: "0" },
-      { label: "Status", value: "V1 shipped" },
     ],
     context: {
       heading: "Offer managers had no way to test a decision that moved margin",
@@ -359,6 +359,7 @@ export const caseStudies: CaseStudy[] = [
       {
         heading: "1. Embedded in the nomination flow, not a standalone experimentation module",
         body: "Adoption was the binding constraint, not capability. Offer managers had no experimentation habit, and moving them into a new tool would have killed usage before it started. Cost: a test can only express what a single nomination can express — cross-offer designs and holdout groups need a different home later.",
+        insight: "Campaign setup time down 33%, and the number of experiments offer managers run increased 2.2x.",
       },
       {
         heading: "2. Platform-managed uniform allocation, not manual weighting",

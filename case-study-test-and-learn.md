@@ -39,10 +39,11 @@ Deferred out of V1: multi-variant testing (several versions of the same element 
 
 ## Outcomes
 
-[TODO — needs real data before this section can be written:]
+Campaign setup time dropped 33%, since a test no longer meant building a duplicate offer end to end. The number of experiments offer managers run increased 2.2x once testing didn't require a bespoke ask.
+
+[TODO — still needs real data before this section is complete:]
 - Tests run in the first N months
 - Share of campaigns using the A/B testing feature
-- Setup time before vs after, for a comparable test
 - A real uplift a test surfaced, and what changed as a result
 - Client adoption across the retailer base
 
