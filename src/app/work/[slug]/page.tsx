@@ -2,8 +2,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Lightbulb } from "lucide-react";
 import { caseStudyMap, caseStudies } from "@/data/caseStudies";
+import { projects } from "@/data/projects";
 import { industryMap } from "@/data/industries";
 import { profile } from "@/data/profile";
+import { iconMap, gradientMap, dotPattern } from "@/components/projectVisuals";
 
 export function generateStaticParams() {
   return caseStudies.map((c) => ({ slug: c.slug }));
@@ -18,19 +20,40 @@ export default async function CaseStudyPage({
   const cs = caseStudyMap[slug];
   if (!cs) return notFound();
 
+  const project = projects.find((p) => p.slug === slug);
+  const icon = project?.icon ?? "layers";
+  const Icon = iconMap[icon];
+
   return (
     <main className="min-h-screen" style={{ background: "var(--background)" }}>
-      <div className="max-w-3xl mx-auto px-4 py-10 md:py-16">
+      <div className="max-w-3xl mx-auto px-4 pt-8">
         <Link
           href="/"
-          className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors mb-8"
+          className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--accent)] transition-colors"
         >
           <ArrowLeft className="w-4 h-4" /> Back to {profile.displayName}&apos;s portfolio
         </Link>
+      </div>
 
-        <p className="text-xs font-semibold uppercase tracking-widest text-[var(--accent)] mb-3">
-          {cs.company} · Case study
-        </p>
+      <div
+        className="relative h-48 md:h-56 mt-6 mb-10 overflow-hidden flex items-end"
+        style={{
+          backgroundImage: `${dotPattern}, ${gradientMap[icon]}`,
+          backgroundSize: "20px 20px, cover",
+        }}
+      >
+        <Icon className="absolute -right-6 -bottom-6 w-48 h-48 text-white/10" strokeWidth={1} />
+        <div className="max-w-3xl mx-auto px-4 pb-6 w-full relative">
+          <div className="w-14 h-14 rounded-xl bg-white/15 backdrop-blur-sm flex items-center justify-center mb-4">
+            <Icon className="w-7 h-7 text-white" />
+          </div>
+          <p className="text-xs font-semibold uppercase tracking-widest text-white/80">
+            {cs.company} · Case study
+          </p>
+        </div>
+      </div>
+
+      <div className="max-w-3xl mx-auto px-4 pb-16">
         <h1 className="text-3xl md:text-4xl font-bold text-[var(--foreground)] leading-tight">
           {cs.title}
         </h1>

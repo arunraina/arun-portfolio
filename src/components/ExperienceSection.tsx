@@ -79,13 +79,22 @@ export default function ExperienceSection({ lens }: { lens: IndustryId | null })
                 {company.initials}
               </div>
               <div className="min-w-0">
-                <div className="flex flex-wrap items-baseline gap-x-2">
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5">
                   <h3 className="text-lg font-semibold text-[var(--foreground)]">
                     {company.name}
                   </h3>
-                  <span className="text-xs text-[var(--text-muted)]">{company.period}</span>
+                  <span
+                    className="text-xs sm:text-sm font-semibold px-3 py-1 rounded-full"
+                    style={{
+                      background: "var(--accent-soft)",
+                      color: "var(--accent)",
+                      border: "1px solid var(--accent-border)",
+                    }}
+                  >
+                    {company.period}
+                  </span>
                 </div>
-                <p className="text-sm text-[var(--text-secondary)] mt-0.5">
+                <p className="text-sm text-[var(--text-secondary)] mt-1">
                   {company.descriptor}
                 </p>
               </div>

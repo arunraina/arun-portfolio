@@ -2,80 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import {
-  Phone,
-  LineChart,
-  Wallet,
-  Building2,
-  Video,
-  Trophy,
-  Users,
-  Ticket,
-  ShoppingCart,
-  Layers,
-  Camera,
-  Megaphone,
-  Route,
-  Receipt,
-  FlaskConical,
-  Brain,
-  Truck,
-  Zap,
-  Scale,
-  MessageSquare,
-  ArrowUpRight,
-  ChevronDown,
-  Check,
-} from "lucide-react";
-import { projects, Project } from "@/data/projects";
+import { ArrowUpRight, ChevronDown, Check } from "lucide-react";
+import { projects } from "@/data/projects";
 import { industryMap } from "@/data/industries";
 import { IndustryId } from "@/data/types";
-
-const iconMap: Record<Project["icon"], typeof Phone> = {
-  call: Phone,
-  chart: LineChart,
-  wallet: Wallet,
-  building: Building2,
-  video: Video,
-  trophy: Trophy,
-  users: Users,
-  ticket: Ticket,
-  cart: ShoppingCart,
-  layers: Layers,
-  camera: Camera,
-  megaphone: Megaphone,
-  route: Route,
-  receipt: Receipt,
-  flask: FlaskConical,
-  brain: Brain,
-  truck: Truck,
-  zap: Zap,
-  scale: Scale,
-  chat: MessageSquare,
-};
-
-const gradientMap: Record<Project["icon"], string> = {
-  call: "linear-gradient(135deg, #eef2ff, #dbeafe)",
-  chart: "linear-gradient(135deg, #ecfeff, #e0f2fe)",
-  wallet: "linear-gradient(135deg, #f0fdf4, #dcfce7)",
-  building: "linear-gradient(135deg, #fef3c7, #fde68a)",
-  video: "linear-gradient(135deg, #fdf2f8, #fce7f3)",
-  trophy: "linear-gradient(135deg, #f5f3ff, #ede9fe)",
-  users: "linear-gradient(135deg, #fff7ed, #ffedd5)",
-  ticket: "linear-gradient(135deg, #f0f9ff, #e0f2fe)",
-  cart: "linear-gradient(135deg, #fefce8, #fef9c3)",
-  layers: "linear-gradient(135deg, #f0fdfa, #ccfbf1)",
-  camera: "linear-gradient(135deg, #fdf4ff, #fae8ff)",
-  megaphone: "linear-gradient(135deg, #fff1f2, #ffe4e6)",
-  route: "linear-gradient(135deg, #f7fee7, #ecfccb)",
-  receipt: "linear-gradient(135deg, #f8fafc, #e2e8f0)",
-  flask: "linear-gradient(135deg, #eff6ff, #dbeafe)",
-  brain: "linear-gradient(135deg, #ede9fe, #ddd6fe)",
-  truck: "linear-gradient(135deg, #fff7ed, #fed7aa)",
-  zap: "linear-gradient(135deg, #fefce8, #fef08a)",
-  scale: "linear-gradient(135deg, #f0f9ff, #bae6fd)",
-  chat: "linear-gradient(135deg, #f5f3ff, #ddd6fe)",
-};
+import { iconMap, gradientMap, dotPattern } from "./projectVisuals";
 
 const INITIAL_COUNT = 6;
 
@@ -112,13 +43,20 @@ export default function FlagshipGrid({ lens }: { lens: IndustryId | null }) {
               style={{ background: "var(--card)" }}
             >
               <div
-                className="p-5 pb-4"
-                style={{ background: gradientMap[p.icon] }}
+                className="relative h-28 p-5 pb-4 flex flex-col justify-between overflow-hidden"
+                style={{
+                  backgroundImage: `${dotPattern}, ${gradientMap[p.icon]}`,
+                  backgroundSize: "16px 16px, cover",
+                }}
               >
-                <div className="w-9 h-9 rounded-lg bg-white/70 flex items-center justify-center mb-3">
-                  <Icon className="w-4.5 h-4.5 text-[var(--foreground)]" />
+                <Icon
+                  className="absolute -right-3 -bottom-3 w-24 h-24 text-white/10"
+                  strokeWidth={1.2}
+                />
+                <div className="relative w-10 h-10 rounded-lg bg-white/15 backdrop-blur-sm flex items-center justify-center">
+                  <Icon className="w-5 h-5 text-white" />
                 </div>
-                <p className="text-[11px] font-semibold uppercase tracking-wide text-[var(--foreground)]/70">
+                <p className="relative text-[11px] font-semibold uppercase tracking-wide text-white/90">
                   {p.category}
                 </p>
               </div>
