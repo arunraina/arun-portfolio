@@ -45,72 +45,6 @@ export const projects: Project[] = [
     tags: ["marketplace", "mobile-app", "live-streaming", "b2c-growth", "payments-fintech", "ai-ml", "consulting-strategy"],
   },
   {
-    slug: "emom-personalization",
-    company: "Dunnhumby",
-    title: "EMOM Personalization Platform",
-    category: "B2B SaaS · Retail Media · AI/ML",
-    description:
-      "Enterprise personalization platform deployed across 5+ Tier-1 retailers (Tesco, John Lewis Partners, Coop, Metro), unifying offers, experimentation and AI-driven decisioning.",
-    impact: ["50M+ customer interactions", "30–40% faster campaign setup", "5+ Tier-1 retailers live"],
-    icon: "chart",
-    tags: ["b2b-saas", "ai-ml"],
-  },
-  {
-    slug: "omnichannel-orchestration",
-    company: "Dunnhumby",
-    title: "Omnichannel Campaign Orchestration",
-    category: "B2B SaaS · Retail Media · Martech",
-    description:
-      "Unified Email, SMS and Direct Mail execution with audience targeting and offer decisioning — one orchestration layer for lifecycle-driven retailer campaigns.",
-    impact: ["Cross-channel orchestration", "Built-in offer decisioning", "Lifecycle-driven engagement"],
-    icon: "layers",
-    tags: ["b2b-saas", "ecommerce"],
-  },
-  {
-    slug: "payments-checkout",
-    company: "Nojoto",
-    title: "Payments & Checkout Platform",
-    category: "Payments · FinTech · Checkout",
-    description:
-      "Owned the end-to-end payments stack — wallet, UPI/card gateways, KYC, escrow and checkout — rebuilding the funnel for reliability and conversion.",
-    impact: ["+34% payment success ratio", "−16% payment failures", "+8% gross revenue"],
-    icon: "wallet",
-    tags: ["payments-fintech", "ecommerce", "marketplace", "finance-tax"],
-  },
-  {
-    slug: "construction-marketplace",
-    company: "Griffy",
-    title: "Construction Marketplace",
-    category: "Marketplace · Construction · 0→1",
-    description:
-      "Founded and built a two-sided marketplace from scratch, connecting homeowners with architects, contractors, material suppliers and service professionals.",
-    impact: ["0→1 marketplace, full stack", "Vendor KYC & trust workflows", "Escrow-based payments"],
-    icon: "building",
-    tags: ["construction", "marketplace", "consulting-strategy", "payments-fintech", "logistics", "finance-tax"],
-  },
-  {
-    slug: "griffy-supply-materials",
-    company: "Griffy",
-    title: "Griffy Supply — B2B Materials & Distributor ERP Integration",
-    category: "B2B SaaS · Supply Chain · Construction",
-    description:
-      "Designed the B2B materials ordering module — canonical catalogue, honest stock-visibility tiers, credit limit checks and an ERP adapter contract — for contractors ordering from distributors who still run Tally on a desktop.",
-    impact: ["3-tier stock honesty model", "7-entity canonical ERP contract", "<2% target oversell rate"],
-    icon: "package",
-    tags: ["construction", "b2b-saas", "marketplace", "logistics"],
-  },
-  {
-    slug: "vendor-crm-lead-management",
-    company: "Griffy",
-    title: "Vendor CRM & Lead Management",
-    category: "B2B SaaS · Sales Ops · Construction",
-    description:
-      "Built a CRM and lead-management platform for sales teams — capture, qualify, score and convert marketplace leads with structured follow-ups.",
-    impact: ["Lead scoring & tracking", "Structured follow-up workflows", "Built for sales conversion"],
-    icon: "users",
-    tags: ["construction", "marketplace", "consulting-strategy", "b2b-saas"],
-  },
-  {
     slug: "atlas-ai-decision-layer",
     company: "Griffy",
     title: "Atlas — AI Decision Layer",
@@ -124,6 +58,83 @@ export const projects: Project[] = [
     ],
     icon: "brain",
     tags: ["agentic-ai", "ai-ml", "construction", "marketplace", "consulting-strategy"],
+  },
+  {
+    slug: "griffy-supply-materials",
+    company: "Griffy",
+    title: "Griffy Supply — B2B Materials & Distributor ERP Integration",
+    category: "B2B SaaS · Supply Chain · Construction",
+    description:
+      "Designed the B2B materials ordering module — canonical catalogue, honest stock-visibility tiers, credit limit checks and an ERP adapter contract — for contractors ordering from distributors who still run Tally on a desktop.",
+    impact: ["3-tier stock honesty model", "7-entity canonical ERP contract", "<2% target oversell rate"],
+    icon: "package",
+    tags: ["construction", "b2b-saas", "marketplace", "logistics"],
+  },
+  {
+    slug: "test-learn-experimentation",
+    company: "Dunnhumby",
+    title: "Test & Learn: A/B Testing in the Offer Nomination Flow",
+    category: "B2B SaaS · Experimentation · AI/ML",
+    description:
+      "Shipped A/B testing embedded inside the offer nomination flow, so retail offer managers can test copy, mechanics, dates and audience without building duplicate offers or hand-splitting audiences.",
+    impact: ["-33% campaign setup time", "2.2x experiments run", "4 testable variables at V1"],
+    icon: "flask",
+    tags: ["b2b-saas", "ai-ml"],
+  },
+  {
+    slug: "payments-checkout",
+    company: "Nojoto",
+    title: "Payments & Checkout Platform",
+    category: "Payments · FinTech · Checkout",
+    description:
+      "Owned the end-to-end payments stack — wallet, UPI/card gateways, KYC, escrow and checkout — rebuilding the funnel for reliability and conversion.",
+    impact: ["+34% payment success ratio", "−16% payment failures", "+8% gross revenue"],
+    icon: "wallet",
+    tags: ["payments-fintech", "ecommerce", "marketplace", "finance-tax"],
+  },
+  {
+    slug: "omnichannel-orchestration",
+    company: "Dunnhumby",
+    title: "Omnichannel Campaign Orchestration",
+    category: "B2B SaaS · Retail Media · Martech",
+    description:
+      "Unified Email, SMS and Direct Mail execution with audience targeting and offer decisioning — one orchestration layer for lifecycle-driven retailer campaigns.",
+    impact: ["Cross-channel orchestration", "Built-in offer decisioning", "Lifecycle-driven engagement"],
+    icon: "layers",
+    tags: ["b2b-saas", "ecommerce"],
+  },
+  {
+    slug: "emom-personalization",
+    company: "Dunnhumby",
+    title: "EMOM Personalization Platform",
+    category: "B2B SaaS · Retail Media · AI/ML",
+    description:
+      "Enterprise personalization platform deployed across 5+ Tier-1 retailers (Tesco, John Lewis Partners, Coop, Metro), unifying offers, experimentation and AI-driven decisioning.",
+    impact: ["50M+ customer interactions", "30–40% faster campaign setup", "5+ Tier-1 retailers live"],
+    icon: "chart",
+    tags: ["b2b-saas", "ai-ml"],
+  },
+  {
+    slug: "construction-marketplace",
+    company: "Griffy",
+    title: "Construction Marketplace",
+    category: "Marketplace · Construction · 0→1",
+    description:
+      "Founded and built a two-sided marketplace from scratch, connecting homeowners with architects, contractors, material suppliers and service professionals.",
+    impact: ["0→1 marketplace, full stack", "Vendor KYC & trust workflows", "Escrow-based payments"],
+    icon: "building",
+    tags: ["construction", "marketplace", "consulting-strategy", "payments-fintech", "logistics", "finance-tax"],
+  },
+  {
+    slug: "vendor-crm-lead-management",
+    company: "Griffy",
+    title: "Vendor CRM & Lead Management",
+    category: "B2B SaaS · Sales Ops · Construction",
+    description:
+      "Built a CRM and lead-management platform for sales teams — capture, qualify, score and convert marketplace leads with structured follow-ups.",
+    impact: ["Lead scoring & tracking", "Structured follow-up workflows", "Built for sales conversion"],
+    icon: "users",
+    tags: ["construction", "marketplace", "consulting-strategy", "b2b-saas"],
   },
   {
     company: "Dunnhumby",
@@ -259,16 +270,5 @@ export const projects: Project[] = [
     impact: ["Payment ledger & audit reports", "Invoicing & creator payouts", "KYC-gated compliance"],
     icon: "receipt",
     tags: ["payments-fintech", "finance-tax", "consulting-strategy", "marketplace"],
-  },
-  {
-    slug: "test-learn-experimentation",
-    company: "Dunnhumby",
-    title: "Test & Learn: A/B Testing in the Offer Nomination Flow",
-    category: "B2B SaaS · Experimentation · AI/ML",
-    description:
-      "Shipped A/B testing embedded inside the offer nomination flow, so retail offer managers can test copy, mechanics, dates and audience without building duplicate offers or hand-splitting audiences.",
-    impact: ["-33% campaign setup time", "2.2x experiments run", "4 testable variables at V1"],
-    icon: "flask",
-    tags: ["b2b-saas", "ai-ml"],
   },
 ];
