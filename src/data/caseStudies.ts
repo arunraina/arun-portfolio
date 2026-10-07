@@ -27,6 +27,8 @@ export interface CaseStudy {
   /** How impact/success is actually tracked, distinct from the outcome `metrics` grid above. */
   successMetrics?: { label: string; body: string }[];
   customerInsights?: { finding: string; response: string }[];
+  /** Forward-looking: how this would be built with today's stack. Clearly framed as not-yet-shipped. */
+  nextIteration?: { intro: string; items: { label: string; body: string }[] };
   artifacts?: DesignArtifact[];
 }
 
@@ -847,7 +849,14 @@ export const caseStudies: CaseStudy[] = [
         "I owned search and discovery end to end as part of my Head of Product remit — problem definition, ranking strategy and success metrics — leading a cross-functional pod across engineering, data and design, and partnering with the founders on prioritization.",
       ],
     },
-    platform: ["Elasticsearch", "Transliteration (Latin ↔ Devanagari)", "Fuzzy + exact matching", "Tag normalization", "Mixpanel funnels"],
+    platform: [
+      "Elasticsearch (BM25 scoring, custom analyzers)",
+      "Transliteration pipeline (Latin ↔ Devanagari)",
+      "Fuzzy + exact matching with relevance boosting",
+      "Ingestion-time text & tag normalization",
+      "Signal-weighted people ranking",
+      "Search funnel analytics (Mixpanel)",
+    ],
     flow: [
       { step: "Normalize the query", detail: "Lower-case, strip emoji and symbols, and transliterate so 'pyar' and 'प्यार' resolve to the same terms." },
       { step: "Match for recall", detail: "Typo-tolerant fuzzy matching catches misspellings like 'lovestorys' and 'panjabi'." },
@@ -874,8 +883,8 @@ export const caseStudies: CaseStudy[] = [
         body: "For common names, a pure text match returns identical-looking profiles. Ranking on profile completeness, followers, content volume and recency puts the active creator first.",
       },
       {
-        heading: "5. Measure search as a funnel",
-        body: "Search success was tracked as query → results → tap → play/follow, alongside the zero-result rate — turning the zero-result list into a weekly backlog of synonyms and transliteration fixes.",
+        heading: "5. A relevance-tuning feedback loop, not a one-time launch",
+        body: "Search success was tracked as a funnel — query → results → tap → play/follow — alongside the zero-result rate. The zero-result and low-click query lists became a weekly backlog of synonym, transliteration and boosting fixes, so relevance kept improving in production instead of freezing at launch.",
       },
     ],
     successMetrics: [
@@ -884,6 +893,32 @@ export const caseStudies: CaseStudy[] = [
       { label: "Engagement", body: "Search → play / follow conversion, by tab (Stories, People, Tags)." },
       { label: "Coverage", body: "Zero-result query rate, reviewed weekly to drive synonym and transliteration fixes." },
     ],
+    nextIteration: {
+      intro:
+        "The Nojoto stack was lexical search done well. If I were building the same experience today — or an enterprise knowledge search on top of it — these are the next layers I'd add, and the trade-offs I'd manage.",
+      items: [
+        {
+          label: "Hybrid retrieval",
+          body: "Keep BM25 for exact names, tags and rare terms, and add multilingual embeddings in a vector index for meaning-level matches ('dard bhari shayari' ↔ sad poetry). Fuse both result sets with reciprocal rank fusion, then apply a cross-encoder re-ranker on the top results — balancing relevance against latency and cost.",
+        },
+        {
+          label: "Chunking & ingestion",
+          body: "Long-form content and transcripts chunked by structure, with metadata (language, creator, tags, freshness) carried on every chunk so filtering and ranking work at chunk level, not just document level.",
+        },
+        {
+          label: "RAG answers with citations",
+          body: "For question-style queries, assemble the top chunks into context and generate a grounded answer that cites its sources — and answer 'I don't know' when retrieval confidence is low, rather than hallucinating.",
+        },
+        {
+          label: "Evaluation before intuition",
+          body: "A golden query set per language and intent, offline metrics (precision@k, recall@k, nDCG), LLM-as-a-judge for answer faithfulness, and online A/B tests on search → engagement — so every relevance change ships with evidence.",
+        },
+        {
+          label: "Permission-aware by design",
+          body: "Access filters applied at retrieval time, not after generation — private, followers-only or tenant-scoped content never enters the candidate set, so it can never leak into a result or an answer.",
+        },
+      ],
+    },
     artifacts: [
       {
         label: "Stories search",

@@ -239,6 +239,29 @@ export default async function CaseStudyPage({
           </>
         )}
 
+        {cs.nextIteration && (
+          <>
+            <h2 className="text-xl font-bold text-[var(--foreground)] mt-12 mb-3">
+              What I&apos;d build today
+            </h2>
+            <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-5 max-w-2xl">
+              {cs.nextIteration.intro}
+            </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {cs.nextIteration.items.map((m, i) => (
+                <div
+                  key={i}
+                  className="rounded-xl p-5"
+                  style={{ background: "var(--card)", border: "1px dashed var(--accent-border)" }}
+                >
+                  <h3 className="text-sm font-bold text-[var(--foreground)] mb-1.5">{m.label}</h3>
+                  <p className="text-sm text-[var(--text-secondary)] leading-relaxed">{m.body}</p>
+                </div>
+              ))}
+            </div>
+          </>
+        )}
+
         {cs.customerInsights && cs.customerInsights.length > 0 && (
           <>
             <h2 className="text-xl font-bold text-[var(--foreground)] mt-12 mb-5">
