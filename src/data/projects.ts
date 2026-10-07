@@ -28,11 +28,23 @@ export interface Project {
     | "zap"
     | "scale"
     | "chat"
-    | "package";
+    | "package"
+    | "search";
   tags: IndustryId[];
 }
 
 export const projects: Project[] = [
+  {
+    slug: "multilingual-search",
+    company: "Nojoto",
+    title: "Multilingual Search & Discovery",
+    category: "Search · Discovery · AI/ML",
+    description:
+      "Rebuilt Nojoto's search on Elasticsearch so Hinglish, Devanagari and misspelled queries find the right stories, creators and tags — one engine for every Indian language on a 30M+ MAU platform.",
+    impact: ["30× faster search", "+25% search accuracy", "Stories, People & Tags in one engine"],
+    icon: "search",
+    tags: ["search", "ai-ml", "b2c-growth", "mobile-app", "consulting-strategy"],
+  },
   {
     slug: "expert-consultations",
     company: "Nojoto",
@@ -258,7 +270,7 @@ export const projects: Project[] = [
       "Rebuilt search and discovery on Elasticsearch and redesigned onboarding funnels and the profile-completion journey to get new users to their first Aha moment faster.",
     impact: ["Elasticsearch-powered search", "Redesigned onboarding funnel", "Profile-completion journey"],
     icon: "route",
-    tags: ["ai-ml", "b2c-growth", "consulting-strategy", "marketplace", "mobile-app"],
+    tags: ["search", "ai-ml", "b2c-growth", "consulting-strategy", "marketplace", "mobile-app"],
   },
   {
     slug: "creator-payouts-ledger",

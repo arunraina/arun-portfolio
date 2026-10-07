@@ -115,8 +115,10 @@ export const companies: Company[] = [
             tags: ["marketplace", "mobile-app", "live-streaming", "b2c-growth", "payments-fintech"],
           },
           {
-            text: "Rebuilt search and discovery on Elasticsearch and redesigned onboarding funnels and the profile-completion journey to accelerate new users to their first Aha moment.",
-            tags: ["ai-ml", "b2c-growth", "consulting-strategy", "marketplace", "mobile-app"],
+            text: "Rebuilt search and discovery on Elasticsearch — 30× faster multilingual search with 25% better accuracy across Indian languages — and redesigned onboarding funnels and the profile-completion journey to accelerate new users to their first Aha moment.",
+            metric: "30× faster search, +25% accuracy",
+            tags: ["search", "ai-ml", "b2c-growth", "consulting-strategy", "marketplace", "mobile-app"],
+            caseStudySlug: "multilingual-search",
           },
           {
             text: "Built the financial backbone behind every payment feature — ledgers, invoicing, audit reporting and creator payout runs — keeping KYC'd creators paid correctly and on time.",

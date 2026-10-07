@@ -11,7 +11,8 @@ export type IndustryId =
   | "agentic-ai"
   | "finance-tax"
   | "logistics"
-  | "mobile-app";
+  | "mobile-app"
+  | "search";
 
 export interface Industry {
   id: IndustryId;

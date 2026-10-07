@@ -102,6 +102,13 @@ export const industries: Industry[] = [
     tagline:
       "Consumer mobile product surfaces — content creation, live streaming, discovery and monetization shipped inside the Nojoto app.",
   },
+  {
+    id: "search",
+    label: "Search & Discovery",
+    short: "Search",
+    tagline:
+      "Multilingual search and discovery at consumer scale — Elasticsearch relevance, Hinglish and Devanagari transliteration, typo tolerance and ranking across stories, creators and tags.",
+  },
 ];
 
 export const industryMap: Record<string, Industry> = Object.fromEntries(

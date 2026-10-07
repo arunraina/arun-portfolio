@@ -821,6 +821,91 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
+    slug: "multilingual-search",
+    company: "Nojoto",
+    title: "Multilingual Search & Discovery",
+    subtitle:
+      "As Head of Product, I rebuilt Nojoto's search on Elasticsearch so Hinglish, Devanagari and misspelled queries find the right stories, creators and tags — across a 30M+ MAU platform scaling toward ~150M ARR.",
+    tags: ["search", "ai-ml", "b2c-growth", "mobile-app", "consulting-strategy"],
+    metrics: [
+      { label: "Search response time", value: "30× faster" },
+      { label: "Search accuracy", value: "+25%" },
+      { label: "MAU served", value: "30M+" },
+      { label: "Platform ARR", value: "~150M" },
+    ],
+    context: {
+      heading: "What is search at Nojoto",
+      body: [
+        "Nojoto is India's largest storytelling platform — Shayari, poetry, comedy, talks and opinions told on video. Search is how users find content on purpose, rather than waiting for the feed, across three tabs: Stories, People and Tags.",
+        "Most of the audience is in Tier-2 and Tier-3 India and writes in Hindi, Urdu, Punjabi and English — often mixing scripts inside a single query.",
+      ],
+    },
+    product: {
+      heading: "The problem, and my role",
+      body: [
+        "One intent arrived in many spellings: a user looking for love shayari might type 'love story', 'lovestorys', 'लव स्टोरी' or 'panjabi love story', and the old search treated each as a different query. One topic was fragmented across dozens of hashtags — #LoveStory (14K+ stories), #lovestorys, #lovestory❤️, #lovestory®, #lovestoryhindi — thinning out discovery and follows. And a common-name search returned a wall of look-alike profiles with default avatars, burying the real creator.",
+        "I owned search and discovery end to end as part of my Head of Product remit — problem definition, ranking strategy and success metrics — leading a cross-functional pod across engineering, data and design, and partnering with the founders on prioritization.",
+      ],
+    },
+    platform: ["Elasticsearch", "Transliteration (Latin ↔ Devanagari)", "Fuzzy + exact matching", "Tag normalization", "Mixpanel funnels"],
+    flow: [
+      { step: "Normalize the query", detail: "Lower-case, strip emoji and symbols, and transliterate so 'pyar' and 'प्यार' resolve to the same terms." },
+      { step: "Match for recall", detail: "Typo-tolerant fuzzy matching catches misspellings like 'lovestorys' and 'panjabi'." },
+      { step: "Rank for precision", detail: "Exact phrase and canonical-tag matches are boosted to the top, so tolerance never buries the right answer." },
+      { step: "Rank people on credibility", detail: "Profile completeness, followers, content volume and recent activity lift real creators above dormant duplicates." },
+      { step: "Measure and feed back", detail: "Query → results → tap → play/follow is tracked; zero-result queries become the weekly synonym and transliteration backlog." },
+    ],
+    decisions: [
+      {
+        heading: "1. Language as an input problem, not a separate product",
+        body: "Instead of building one search per language, content was indexed with transliteration so Latin-script Hindi and Devanagari match each other. One engine serves every Indian language the audience writes in.",
+      },
+      {
+        heading: "2. Fuzzy for recall, exact for precision",
+        body: "Typo-tolerant matching widened what users could find, while exact phrase and tag matches were boosted above fuzzy hits — so a forgiving search never pushed the obviously right result down the page.",
+        insight: "30× faster multilingual search with 25% better accuracy.",
+      },
+      {
+        heading: "3. Normalize tags into topic clusters",
+        body: "Variant hashtags — case, emoji, ®, suffixes — roll up to one canonical topic, so users see one strong result to follow instead of twenty weak ones.",
+      },
+      {
+        heading: "4. Rank people on credibility signals, not just name match",
+        body: "For common names, a pure text match returns identical-looking profiles. Ranking on profile completeness, followers, content volume and recency puts the active creator first.",
+      },
+      {
+        heading: "5. Measure search as a funnel",
+        body: "Search success was tracked as query → results → tap → play/follow, alongside the zero-result rate — turning the zero-result list into a weekly backlog of synonyms and transliteration fixes.",
+      },
+    ],
+    successMetrics: [
+      { label: "Speed", body: "Search response time — 30× faster after moving to Elasticsearch." },
+      { label: "Relevance", body: "Search accuracy across Indian languages — up 25%." },
+      { label: "Engagement", body: "Search → play / follow conversion, by tab (Stories, People, Tags)." },
+      { label: "Coverage", body: "Zero-result query rate, reviewed weekly to drive synonym and transliteration fixes." },
+    ],
+    artifacts: [
+      {
+        label: "Stories search",
+        description: "Mixed-script results for 'love story' — Hinglish, Devanagari and Punjabi-tagged stories surfaced from one query.",
+        url: "https://nojoto.com",
+        images: ["/designs/multilingual-search/stories-search.png"],
+      },
+      {
+        label: "Tags search",
+        description: "The tag-fragmentation problem in one screen: #LoveStory with 14K+ stories alongside dozens of variant spellings, emoji and suffix tags.",
+        url: "https://nojoto.com",
+        images: ["/designs/multilingual-search/tags-search.png"],
+      },
+      {
+        label: "People search",
+        description: "A common-name query returning many look-alike profiles — the case for ranking creators on credibility signals, not just name match.",
+        url: "https://nojoto.com",
+        images: ["/designs/multilingual-search/people-search.png"],
+      },
+    ],
+  },
+  {
     slug: "search-discovery-onboarding",
     company: "Nojoto",
     title: "Search, Discovery & Onboarding",
